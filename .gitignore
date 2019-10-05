@@ -24,3 +24,6 @@ yarn-error.log*
 
 *.map
 .idea/
+
+package-lock.json
+yarn.lock
