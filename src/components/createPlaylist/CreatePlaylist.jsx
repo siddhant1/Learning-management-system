@@ -62,7 +62,7 @@ function CreatePlaylist(props) {
                     key={"Scribble Pad"}
                     icon={<FileCopyIcon/>}
                     // className={classes.tooltipAction}
-                    TooltipClasses={classes.tooltipAction}
+                    // TooltipClasses={classes.tooltipAction}
                     tooltipTitle={<div className={classes.tooltipAction}>{"Scribble Pad"}</div>}
                     tooltipOpen
                     onClick={()=>{ReactPath.navigateTo(props,ReactPath.scribble)}}
@@ -72,7 +72,7 @@ function CreatePlaylist(props) {
                     key={'Screen Record'}
                     icon={<SaveIcon/>}
                     // className={classes.tooltipAction}
-                    TooltipClasses={classes.tooltipAction}
+                    // TooltipClasses={classes.tooltipAction}
                     tooltipTitle={<div className={classes.tooltipAction}>{'Screen Record'}</div>}
                     tooltipOpen
                     onClick={()=>{ReactPath.navigateTo(props,ReactPath.screenRecord)}}
@@ -82,7 +82,7 @@ function CreatePlaylist(props) {
                     key={'Webcam Recording'}
                     icon={<PrintIcon/>}
                     // className={classes.tooltipAction}
-                    TooltipClasses={classes.tooltipAction}
+                    // TooltipClasses={classes.tooltipAction}
                     tooltipTitle={<div className={classes.tooltipAction}>{"Webcam Recording"}</div>}
                     tooltipOpen
                     onClick={()=>{ReactPath.navigateTo(props,ReactPath.webcam)}}
