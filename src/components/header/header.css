@@ -1,0 +1,21 @@
+.header {
+  background-color: #4a354e;
+  width: 100vw;
+  height: 67.5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header img {
+  width: 154px;
+  height: auto;
+  cursor: pointer;
+}
+.header svg {
+  width: 33px;
+  height: 33px;
+  color: #fedd2a;
+  margin-right: 25px;
+  cursor: pointer;
+}
