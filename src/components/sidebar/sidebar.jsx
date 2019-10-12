@@ -6,9 +6,7 @@ export default class Sidebar extends Component {
   render() {
     return (
       <div className="sidebar">
-        <div className="topic-name">
-          Fundamentals of Financial Computing
-        </div>
+        <div className="topic-name">Fundamentals of Financial Computing</div>
         <ul>
           <li>
             <div>

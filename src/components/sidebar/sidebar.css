@@ -1,9 +1,6 @@
 .sidebar ul {
   list-style-type: none;
-
 }
-
-
 
 .sidebar svg {
   width: 13px;
@@ -46,6 +43,6 @@
   cursor: pointer;
 }
 
-.add-course{
-    margin-left: 40px;
+.add-course {
+  margin-left: 40px;
 }
