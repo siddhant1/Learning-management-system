@@ -1,14 +1,12 @@
-import React, { Component } from "react";
-import { Circle, PlusCircle } from "react-feather";
-import "./sidebar.css";
+import React, { Component } from 'react'
+import { Circle, PlusCircle } from 'react-feather'
+import './sidebar.css'
 
 export default class Sidebar extends Component {
   render() {
     return (
-      <div className="sidebar">
-        <div className="topic-name">
-          Fundamentals of Financial Computing
-        </div>
+      <div className='sidebar'>
+        <div className='topic-name'>Fundamentals of Financial Computing</div>
         <ul>
           <li>
             <div>
@@ -29,10 +27,10 @@ export default class Sidebar extends Component {
             </div>
           </li>
         </ul>
-        <div className="add-course">
+        <div className='add-course'>
           <PlusCircle />
         </div>
       </div>
-    );
+    )
   }
 }
