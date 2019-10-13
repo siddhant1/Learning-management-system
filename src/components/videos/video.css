@@ -1,0 +1,17 @@
+.video-thumbnail {
+   cursor: pointer;
+   width: auto;
+   height: 150px;
+   border: 1px solid #bbb;
+   border-radius: 4px;
+}
+
+.video-container {
+   display: flex;
+   flex-direction: column;
+}
+
+.lecture-title {
+   color: #3b3b3b;
+   margin-top: 5%;
+}

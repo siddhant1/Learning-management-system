@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Monitor, Video, Edit2 } from 'react-feather'
 import './AddLecture.css'
 
 export default class AddLecture extends Component {
