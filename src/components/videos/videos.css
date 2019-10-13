@@ -1,0 +1,21 @@
+.videos-container {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   grid-gap: 1rem;
+   margin-left: 2px;
+}
+
+.add-video {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.add-video svg {
+   margin-top: 12%;
+   width: 100px;
+   height: 100px;
+}
+
+.add-video-text {
+   margin-top: 11%;
+}
