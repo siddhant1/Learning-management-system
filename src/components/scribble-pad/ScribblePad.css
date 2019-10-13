@@ -1,0 +1,15 @@
+.container-background {
+   background-color: cornsilk;
+}
+
+.container-inner {
+   display: grid;
+   grid-auto-flow: column;
+   grid-template-columns: 1fr 3fr;
+}
+
+.sub-container1 {
+}
+
+.sub-container2 {
+}
