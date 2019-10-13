@@ -1,0 +1,32 @@
+.methods-container {
+   display: flex;
+   justify-content: space-evenly;
+   height: 80vh;
+}
+
+.flex-container{
+    position: relative;
+}
+
+.method {
+   background-color: #ffffff;
+   width: 20%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 50%;
+   margin-top: 18~%;
+   cursor: pointer;
+}
+
+.feature-text {
+    display: inline-block;
+   font-family: 'Gotham Rounded', sans-serif;
+   font-weight: 500;
+   color: #acacac;
+   font-size: xx-large;
+   margin-left: 28%;
+   position: absolute;
+   top: 15%;
+}

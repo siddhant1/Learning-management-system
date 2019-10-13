@@ -5,14 +5,15 @@ import MainPage from './components/main-page/MainPage'
 import ScribblePad from './components/scribble-pad/ScribblePad'
 import CreatePlaylist from './components/createPlaylist/CreatePlaylist'
 import ReactPath from './lib/ReactPath'
+import AddLecture from './components/addLecture/AddLecture'
 
 function App() {
    return (
       <div className='App'>
          <Switch>
-            <Route path={ReactPath.homePath} exact component={MainPage}/>
-            <Route path={ReactPath.scribble} component={ScribblePad}/>
-            <Route path={ReactPath.createPlaylist} component={CreatePlaylist}/>
+            <Route path={ReactPath.homePath} exact component={MainPage} />
+            <Route path={ReactPath.scribble} component={ScribblePad} />
+            <Route path={ReactPath.createPlaylist} component={AddLecture} />
             {/*<Route path="/webcamrec" component={WebCamRecorder} />*/}
             {/*<Route path="/audiorec" component={AudioRecorder} />*/}
          </Switch>
