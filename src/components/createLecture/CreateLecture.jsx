@@ -48,7 +48,7 @@ const styles = theme => ({
    }
 })
 
-class CreatePlaylist extends Component {
+class CreateLecture extends Component {
    constructor(props) {
       super(props)
       this.state = {
@@ -145,4 +145,4 @@ class CreatePlaylist extends Component {
    }
 }
 
-export default withStyles(styles)(CreatePlaylist)
+export default withStyles(styles)(CreateLecture)
