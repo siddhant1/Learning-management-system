@@ -5,6 +5,7 @@ import AddLecture from '../addLecture/AddLecture'
 import ScribblePad from '../scribble-pad/ScribblePad'
 import ReactPath from '../../lib/ReactPath'
 import Home from '../home/Home'
+import CreateNewPlaylist from '../create-new-playlist/CreateNewPlaylist'
 export default class MainPage extends React.Component {
    render() {
       return (
@@ -14,6 +15,10 @@ export default class MainPage extends React.Component {
                <Route path={ReactPath.homePath} exact component={Home} />
                <Route path={ReactPath.scribble} component={ScribblePad} />
                <Route path={ReactPath.createPlaylist} component={AddLecture} />
+               <Route
+                  path={ReactPath.newPlaylist}
+                  component={CreateNewPlaylist}
+               />
                {/*<Route path ="/webcamrec" component={WebCamRecorder} />*/}
                {/*<Route path="/audiorec" component={AudioRecorder} />*/}
             </Switch>
