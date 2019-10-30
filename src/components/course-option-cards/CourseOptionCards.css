@@ -1,0 +1,15 @@
+.wrapper {
+   display: grid;
+   grid-auto-flow: column;
+   justify-content: space-between;
+   height: 70%;
+}
+
+.wrapper-card-item {
+   margin-right: 6%;
+   height: 100%;
+}
+
+.action-button {
+   margin-bottom: 2%;
+}
