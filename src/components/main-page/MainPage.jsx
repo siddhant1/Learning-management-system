@@ -6,6 +6,11 @@ import ScribblePad from '../scribble-pad/ScribblePad'
 import ReactPath from '../../lib/ReactPath'
 import Home from '../home/Home'
 import CreateNewPlaylist from '../create-new-playlist/CreateNewPlaylist'
+import Login from '../UserLogin/login'
+import SignUp from '../UserLogin/signup'
+import Forgetpassword from '../UserLogin/forgetpassword'
+import Dashboard from '../UserLogin/dashboard/dashboard'
+
 export default class MainPage extends React.Component {
    render() {
       return (
@@ -13,6 +18,13 @@ export default class MainPage extends React.Component {
             <Header />
             <Switch>
                <Route path={ReactPath.homePath} exact component={Home} />
+               <Route path={ReactPath.login} component={Login} />
+               <Route path={ReactPath.signup} component={SignUp} />
+               <Route
+                  path={ReactPath.forgetpassword}
+                  component={Forgetpassword}
+               />
+               <Route path={ReactPath.profile} component={Dashboard} />
                <Route path={ReactPath.scribble} component={ScribblePad} />
                <Route path={ReactPath.createPlaylist} component={AddLecture} />
                <Route
