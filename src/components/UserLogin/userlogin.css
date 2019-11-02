@@ -1,7 +1,3 @@
-body {
-    background-color: '#fff'
-}
-
 .paper {
     display: flex;
     margin-top: 64px;
@@ -14,11 +10,11 @@ body {
     background-color: #f50057;
 }
 
-.form {
+.userForm {
     width: 100%;
     margin-top: 8px;
 }
 
-.submit {
+.userFormSubmit {
     margin: 24px 0px 16px
 }
