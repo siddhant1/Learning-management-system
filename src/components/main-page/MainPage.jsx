@@ -9,7 +9,6 @@ import CreateNewPlaylist from '../create-new-playlist/CreateNewPlaylist'
 import Login from '../UserLogin/login'
 import SignUp from '../UserLogin/signup'
 import Forgetpassword from '../UserLogin/forgetpassword'
-import Dashboard from '../UserLogin/dashboard/dashboard'
 
 export default class MainPage extends React.Component {
    render() {
@@ -24,7 +23,6 @@ export default class MainPage extends React.Component {
                   path={ReactPath.forgetpassword}
                   component={Forgetpassword}
                />
-               <Route path={ReactPath.profile} component={Dashboard} />
                <Route path={ReactPath.scribble} component={ScribblePad} />
                <Route path={ReactPath.createPlaylist} component={AddLecture} />
                <Route

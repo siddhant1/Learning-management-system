@@ -11,7 +11,6 @@ class ReactPath {
    static login = '/login'
    static signup = '/signup'
    static forgetpassword = '/forgetpassword'
-   static profile = '/profile'
 
    // static editSavingPath = (id: number | string = ':id') => `/saving/edit/${id}`;
 
