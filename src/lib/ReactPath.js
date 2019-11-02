@@ -6,6 +6,12 @@ class ReactPath {
    static newPlaylist = '/newPlaylist'
 
    static homePath = '/'
+
+   //Added new routes for login, signup and forget password
+   static login = '/login'
+   static signup = '/signup'
+   static forgetpassword = '/forgetpassword'
+
    // static editSavingPath = (id: number | string = ':id') => `/saving/edit/${id}`;
 
    static navigateTo(props, path) {
