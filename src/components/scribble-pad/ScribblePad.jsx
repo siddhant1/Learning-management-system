@@ -6,7 +6,8 @@ export default class ScribblePad extends React.Component {
    state = {
       color: 'white',
       tool: 'pencil',
-      stroke: 3
+      stroke: 3,
+      scribbleRef: null
    }
 
    setColor = color => {
@@ -21,6 +22,12 @@ export default class ScribblePad extends React.Component {
       this.setState({ stroke })
    }
 
+   componentDidMount() {
+      this.setState({
+         scribbleRef: this.scribble
+      })
+   }
+
    render() {
       return (
          <div className='container-background'>
@@ -29,7 +36,7 @@ export default class ScribblePad extends React.Component {
                   <ScribblePalette
                      getColor={this.setColor}
                      sendTool={this.sendTool}
-                     scribble={this.scribble}
+                     scribble={this.state.scribbleRef}
                      getStroke={this.getStroke}
                   />
                </div>
