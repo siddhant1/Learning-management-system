@@ -1,0 +1,21 @@
+.palette-container {
+   min-width: 80px;
+   background-color: white;
+   border: 1px solid transparent;
+   width: 100%;
+   display: grid;
+   justify-content: space-around;
+   grid-row-gap: 1em;
+   margin-left: 2%;
+}
+
+.shape-wrapper {
+   display: grid;
+   grid-auto-flow: column;
+   justify-content: space-evenly;
+   padding-top: 2%;
+}
+
+.color-palette-wrapper {
+   margin-top: 3%;
+}

@@ -1,0 +1,13 @@
+.actions-wrapper {
+   display: grid;
+   grid-auto-flow: column;
+   justify-content: space-around;
+}
+
+.action-undo {
+   font-size: 2em;
+}
+
+.action-redo {
+   font-size: 2em;
+}
