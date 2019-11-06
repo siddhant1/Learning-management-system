@@ -14,7 +14,6 @@ class ReactPath {
    static forgetpassword = '/forgetpassword'
 
    // static editSavingPath = (id: number | string = ':id') => `/saving/edit/${id}`;
-
    static navigateTo(props, path) {
       props.history.push(path)
    }
