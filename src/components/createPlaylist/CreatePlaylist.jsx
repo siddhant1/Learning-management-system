@@ -1,105 +1,147 @@
-import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import SpeedDial from '@material-ui/lab/SpeedDial'
-import SpeedDialIcon from '@material-ui/lab/SpeedDialIcon'
-import SpeedDialAction from '@material-ui/lab/SpeedDialAction'
-import FileCopyIcon from '@material-ui/icons/FileCopyOutlined'
-import SaveIcon from '@material-ui/icons/Save'
-import PrintIcon from '@material-ui/icons/Print'
-import ReactPath from '../../lib/ReactPath'
+// import React, { Component } from 'react'
+// import withStyles from '@material-ui/core/es/styles/withStyles'
+// import { loadCSS } from 'fg-loadcss'
+// import Grid from '@material-ui/core/Grid'
+// import Typography from '@material-ui/core/Typography'
+// import Card from '@material-ui/core/Card'
+// import CardActionArea from '@material-ui/core/CardActionArea'
+// import CardContent from '@material-ui/core/CardContent'
+// import ReactPath from '../../lib/ReactPath'
+// import classnames from 'classnames'
+// import ScreenShareTwoToneIcon from '@material-ui/icons/ScreenShareTwoTone'
+// import CreateTwoToneIcon from '@material-ui/icons/CreateTwoTone'
+// import VideocamTwoToneIcon from '@material-ui/icons/VideocamTwoTone'
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    height: 380,
-    transform: 'translateZ(0px)',
-    flexGrow: 1
-  },
-  speedDial: {
-    position: 'absolute',
-    bottom: theme.spacing(2),
-    right: theme.spacing(2)
-  },
-  tooltipAction: {
-    width: '9rem'
-  }
-}))
+// const styles = theme => ({
+//    root: {
+//       flexGrow: 1,
+//    },
+//    card: {
+//       maxWidth: 275,
+//       // fontSize: '6rem'
+//    },
+//    bullet: {
+//       display: 'inline-block',
+//       margin: '0 2px',
+//       transform: 'scale(0.8)'
+//    },
+//    icon: {
+//       width: theme.spacing(10),
+//       height: theme.spacing(10),
+//       marginTop: theme.spacing(4),
+//       marginBottom: theme.spacing(4)
+//    },
+//    gradient: {
+//       background: 'linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)',
+//       fallbacks: [
+//          {
+//             background: '-webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)'
+//          },
+//          {
+//             background: '-moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)'
+//          },
+//          {
+//             background: '#f09433'
+//          }
+//       ],
+//       filter: 'progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#f09433\', endColorstr=\'#bc1888\',GradientType=1 )'
+//    }
+// })
 
-function CreatePlaylist(props) {
-  const classes = useStyles()
-  const [open, setOpen] = React.useState(false)
-  const [hidden, setHidden] = React.useState(false)
+// class CreatePlaylist extends Component {
+//    constructor(props) {
+//       super(props)
+//       this.state = {
+//          // open: false,
+//          selectedOption: undefined
+//       }
+//    }
 
-  const handleVisibility = () => {
-    setHidden(prevHidden => !prevHidden)
-  }
+//    componentDidMount = () => {
+//       loadCSS(
+//          'https://use.fontawesome.com/releases/v5.1.0/css/all.css',
+//          document.querySelector('#font-awesome-css')
+//       )
+//    }
 
-  const handleOpen = () => {
-    setOpen(!open)
-  }
+//    render() {
+//       const { classes } = this.props
+//       return (
+//          <div className={classes.root}>
+//             <Grid container spacing={3} justify="center">
+//                <Grid item>
+//                   <Card className={classnames(classes.card, classes.gradient)}>
+//                      <CardActionArea onClick={() => {
+//                         ReactPath.navigateTo(this.props, ReactPath.scribble)
+//                      }}>
+//                         <Grid container direction={'row'} alignItems="center" justify="center">
+//                            <CreateTwoToneIcon className={classes.icon}/>
+//                         </Grid>
 
-  const handleRouteChange = path => {
-    let props = props
-    return () => {
-      ReactPath.navigateTo(props, path)
-    }
-  }
+//                         <CardContent>
+//                            <Typography style={{ color: 'white' }} gutterBottom variant="h5" component="h2">
+//                               {'Scribble Pad'}
+//                            </Typography>
+//                            <Typography style={{ color: 'white' }} variant="body2" color="textSecondary" component="p">
+//                               Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+//                               across all continents except Antarctica
+//                            </Typography>
+//                         </CardContent>
 
-  return (
-    <div className={classes.root}>
-      {/*<Button onClick={handleVisibility}>Toggle Speed Dial</Button>*/}
-      {/*<Backdrop open={open}/>*/}
-      <SpeedDial
-        ariaLabel='SpeedDial tooltip example'
-        className={classes.speedDial}
-        hidden={hidden}
-        icon={<SpeedDialIcon />}
-        // onClose={handleClose}
-        onClick={handleOpen}
-        open={open}>
-        <SpeedDialAction
-          key={'Scribble Pad'}
-          icon={<FileCopyIcon />}
-          // className={classes.tooltipAction}
-          // TooltipClasses={classes.tooltipAction}
-          tooltipTitle={
-            <div className={classes.tooltipAction}>{'Scribble Pad'}</div>
-          }
-          tooltipOpen
-          onClick={() => {
-            ReactPath.navigateTo(props, ReactPath.scribble)
-          }}
-        />
+//                      </CardActionArea>
+//                   </Card>
+//                </Grid>
 
-        <SpeedDialAction
-          key={'Screen Record'}
-          icon={<SaveIcon />}
-          // className={classes.tooltipAction}
-          // TooltipClasses={classes.tooltipAction}
-          tooltipTitle={
-            <div className={classes.tooltipAction}>{'Screen Record'}</div>
-          }
-          tooltipOpen
-          onClick={() => {
-            ReactPath.navigateTo(props, ReactPath.screenRecord)
-          }}
-        />
+//                <Grid item>
+//                   <Card className={classnames(classes.card, classes.gradient)}>
+//                      <CardActionArea onClick={() => {
+//                         ReactPath.navigateTo(this.props, ReactPath.screenRecord)
+//                      }}>
+//                         <Grid container direction={'row'} alignItems="center" justify="center">
+//                            <ScreenShareTwoToneIcon className={classes.icon}/>
+//                         </Grid>
 
-        <SpeedDialAction
-          key={'Webcam Recording'}
-          icon={<PrintIcon />}
-          // className={classes.tooltipAction}
-          // TooltipClasses={classes.tooltipAction}
-          tooltipTitle={
-            <div className={classes.tooltipAction}>{'Webcam Recording'}</div>
-          }
-          tooltipOpen
-          onClick={() => {
-            ReactPath.navigateTo(props, ReactPath.webcam)
-          }}
-        />
-      </SpeedDial>
-    </div>
-  )
-}
+//                         <CardContent>
+//                            <Typography style={{ color: 'white' }} gutterBottom variant="h5" component="h2">
+//                               {'Screen Record'}
+//                            </Typography>
+//                            <Typography style={{ color: 'white' }} variant="body2" color="textSecondary" component="p">
+//                               Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+//                               across all continents except Antarctica
+//                            </Typography>
+//                         </CardContent>
 
-export default CreatePlaylist
+//                      </CardActionArea>
+//                   </Card>
+//                </Grid>
+
+//                <Grid item>
+//                   <Card className={classnames(classes.card, classes.gradient)}>
+//                      <CardActionArea onClick={() => {
+//                         ReactPath.navigateTo(this.props, ReactPath.webcam)
+//                      }}>
+//                         <Grid container direction={'row'} alignItems="center" justify="center">
+//                            <VideocamTwoToneIcon className={classes.icon}/>
+//                         </Grid>
+
+//                         <CardContent>
+//                            <Typography style={{ color: 'white' }} gutterBottom variant="h5" component="h2">
+//                               {'Webcam'}
+//                            </Typography>
+//                            <Typography style={{ color: 'white' }} variant="body2" color="textSecondary" component="p">
+//                               Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+//                               across all continents except Antarctica
+//                            </Typography>
+//                         </CardContent>
+
+//                      </CardActionArea>
+//                   </Card>
+//                </Grid>
+
+//             </Grid>
+//          </div>
+//       )
+//    }
+// }
+
+// export default withStyles(styles)(CreatePlaylist)

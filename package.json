@@ -3,19 +3,30 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.5.0",
+    "@material-ui/core": "^4.5.1",
     "@material-ui/icons": "^4.4.3",
     "@material-ui/lab": "^4.0.0-alpha.28",
+    "bootstrap": "^4.3.1",
+    "classnames": "^2.2.6",
+    "fg-loadcss": "^2.1.0",
     "react": "^16.10.2",
+    "react-color": "^2.17.3",
     "react-dom": "^16.10.2",
     "react-feather": "^2.0.3",
+    "react-floating-action-button": "^1.0.5",
+    "react-icons": "^3.7.0",
+    "react-player": "^1.13.0",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "react-sketch": "^0.5.1",
-    "recordrtc": "^5.5.8"
+    "recordrtc": "^5.5.8",
+    "react-ui-cards": "^2.0.0",
+    "reactstrap": "^8.1.1"
   },
   "scripts": {
+    "check:js": "prettier --check ./src/**/*.{js,jsx}",
+    "format:js": "prettier --write ./src/**/*.{js,jsx}",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -35,5 +46,21 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "devDependencies": {
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2",
+    "prettier": "^1.18.2"
   }
 }
