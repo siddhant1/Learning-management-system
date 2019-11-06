@@ -5,10 +5,10 @@
 }
 
 .like-panel {
-    display: flex;
-    align-items: center;
-    /* width: 50.52%; */
-    /* background-color: #eee; */
+   display: flex;
+   align-items: center;
+   /* width: 50.52%; */
+   /* background-color: #eee; */
 }
 
 .video-container {
@@ -27,6 +27,6 @@
 }
 
 .video-title {
-    font-size: x-large;
-    margin: 20px 0px;
+   font-size: x-large;
+   margin: 20px 0px;
 }
