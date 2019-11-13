@@ -10,6 +10,11 @@ import Forgetpassword from '../UserLogin/forgetpassword'
 import Login from '../UserLogin/login'
 import SignUp from '../UserLogin/signup'
 import VideoPlayer from '../VideoPlayer'
+import Login from '../UserLogin/login'
+import SignUp from '../UserLogin/signup'
+import VideoPlayer from '../VideoPlayer'
+import Forgetpassword from '../UserLogin/forgetpassword'
+// import Recording from '../Recording/Recording'
 // import ScreenRecording from '../Recording/ScreenRecording'
 
 export default class MainPage extends React.Component {
@@ -27,6 +32,16 @@ export default class MainPage extends React.Component {
                   component={Forgetpassword}
                />
                <Route exact path={ReactPath.scribble} component={ScribblePad} />
+               <Route path={ReactPath.homePath} exact component={Home} />
+               <Route path={ReactPath.login} component={Login} />
+               <Route path={ReactPath.signup} component={SignUp} />
+               <Route
+                  path={ReactPath.forgetpassword}
+                  component={Forgetpassword}
+               />
+               <Route path={ReactPath.scribble} component={ScribblePad} />
+               <Route path={ReactPath.createPlaylist} component={AddLecture} />
+
                <Route
                   exact
                   path={ReactPath.createLesson}
@@ -42,6 +57,9 @@ export default class MainPage extends React.Component {
                   path={ReactPath.playVideo}
                   component={VideoPlayer}
                />
+
+               <Route path={ReactPath.playVideo} component={VideoPlayer} />
+
                {/* <Route path={ReactPath.webCam} component={Recording}/>
                <Route path={ReactPath.screenRecord} component={ScreenRecording}/> */}
             </Switch>
