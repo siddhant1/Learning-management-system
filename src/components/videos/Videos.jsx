@@ -3,6 +3,7 @@ import Video from './Video'
 import './videos.css'
 import './video.css'
 import { PlusCircle } from 'react-feather'
+import { Link } from 'react-router-dom'
 
 export default class Videos extends Component {
    state = {
@@ -45,10 +46,13 @@ export default class Videos extends Component {
             {this.state.videos.map(video => (
                <Video video={video} />
             ))}
-            <div className='video-container add-video'>
-               <PlusCircle />
-               <div className='add-video-text'>{'Add Lecture'}</div>
-            </div>
+
+            <Link to='/newLesson'>
+               <div className='video-container add-video'>
+                  <PlusCircle />
+                  <div className='add-video-text'>{'Add Lecture'}</div>
+               </div>
+            </Link>
          </div>
       )
    }
