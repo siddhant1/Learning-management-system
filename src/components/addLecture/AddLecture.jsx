@@ -4,21 +4,28 @@ import './AddLecture.css'
 export default class AddLecture extends Component {
    state = {
       methods: [
-         'Artboard – 1.png',
-         'Artboard – 2.png',
-         'Artboard – 3.png',
-         'Artboard – 4.png',
-         'Artboard – 5.png'
+         { name: 'Artboard – 1.png', route: '/webCam' },
+         { name: 'Artboard – 2.png', route: '/pen' },
+         { name: 'Artboard – 3.png', route: '/screenRecord' },
+         { name: 'Artboard – 4.png', route: '/text' },
+         { name: 'Artboard – 5.png', route: '/uploadImage' }
       ]
    }
    render() {
       return (
-         <div className="flex-container">
-            <div className="feature-text">Create Lesson using features below</div>
+         <div className='flex-container'>
+            <div className='feature-text'>
+               Create Lesson using features below
+            </div>
             <div className='methods-container'>
                {this.state.methods.map(img => (
                   <div className='method'>
-                     <img key={img} src={`./images/${img}`} alt={img} />
+                     <img
+                        key={img.name}
+                        src={`./images/${img.name}`}
+                        alt={img.name}
+                        onClick={() => this.props.history.push(img.route)}
+                     />
                   </div>
                ))}
             </div>
