@@ -1,9 +1,46 @@
-.home-page-content-text{
-    font-size: 30px;
-    color:#acacac;
-    margin-bottom: 18px;
+.home-page-content-text {
+   font-size: 30px;
+   color: #acacac;
+   margin-bottom: 18px;
 }
 
-.home-page-content{
-    margin-top: 5%;
+.home-page-content {
+   margin-top: 5%;
+}
+
+.portal {
+   width: 600px;
+   background: white;
+   /* height: 100px; */
+   position: absolute;
+   top: 30%;
+   left: 28%;
+   display: flex;
+   align-items: center;
+   border: 1px solid black;
+   flex-direction: column;
+   border-radius: 9px;
+   padding: 30px;
+}
+
+.portal .input-group {
+   margin-left: 11%;
+   width: 80%;
+   margin-right: 20px;
+}
+.portal p {
+   white-space: nowrap;
+   margin-bottom: 0;
+   margin-left: 30px;
+   /* color: white; */
+}
+
+.portal .input-group-append .btn {
+   color: #fedd2a !important;
+}
+
+
+.pl-img{
+    width:80px;
+    margin: 9px;
 }
