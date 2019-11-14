@@ -17,8 +17,7 @@ const styles = theme => ({
    root: {
       margin: theme.spacing(1),
       border: '1px solid black',
-      height: theme.spacing(33.7),
-      borderRadius: '15%'
+      height: theme.spacing(33.7)
    },
    content: {
       height: '100%'
