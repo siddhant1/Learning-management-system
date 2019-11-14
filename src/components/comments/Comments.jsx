@@ -1,4 +1,5 @@
 import React from 'react'
+import './Comments.css'
 import CommentsBlock from 'simple-react-comments'
 
 export default class Comments extends React.Component {
@@ -21,6 +22,7 @@ export default class Comments extends React.Component {
       return (
          <div>
             <CommentsBlock
+               className='comments'
                comments={this.state.comments}
                signinUrl={'/signin'}
                isLoggedIn

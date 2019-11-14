@@ -11,12 +11,21 @@ import './home.css'
 const bounceAnimation = keyframes`${fadeIn}`
 
 const FadeInDiv = styled.div`
-   display: inline-block;
+   display: flex;
    animation: 3s ${bounceAnimation};
 `
 
 export default class Home extends Component {
-   state = { showOptions: false }
+   state = {
+      showOptions: false,
+      images: [
+         { name: 'Artboard – 1.png', route: '/webCam' },
+         { name: 'Artboard – 2.png', route: '/pen' },
+         { name: 'Artboard – 3.png', route: '/screenRecord' },
+         { name: 'Artboard – 4.png', route: '/text' },
+         { name: 'Artboard – 5.png', route: '/uploadImage' }
+      ]
+   }
    render() {
       return (
          <div className='home-page-content'>
@@ -32,7 +41,7 @@ export default class Home extends Component {
                      />
                      {portal(
                         <div className='portal'>
-                           <div style={{ display: 'flex' }}>
+                           <div style={{ display: 'flex', marginTop: '20px' }}>
                               <p style={{ marginTop: '7px' }}>
                                  Enter Playlist Name:
                               </p>
@@ -53,36 +62,28 @@ export default class Home extends Component {
                            {this.state.showOptions && (
                               <div style={{ display: 'block' }}>
                                  <div>
-                                    <FadeInDiv>
-                                       <img
-                                          className='pl-img'
-                                          src='./images/Artboard – 1.png'
-                                       />
-                                    </FadeInDiv>
-                                    <FadeInDiv>
-                                       <img
-                                          className='pl-img'
-                                          src='./images/Artboard – 2.png'
-                                       />
-                                    </FadeInDiv>
-                                    <FadeInDiv>
-                                       <img
-                                          className='pl-img'
-                                          src='./images/Artboard – 3.png'
-                                       />
-                                    </FadeInDiv>
-                                    <FadeInDiv>
-                                       <img
-                                          className='pl-img'
-                                          src='./images/Artboard – 4.png'
-                                       />
-                                    </FadeInDiv>
-                                    <FadeInDiv>
-                                       <img
-                                          className='pl-img'
-                                          src='./images/Artboard – 5.png'
-                                       />
-                                    </FadeInDiv>
+                                    {this.state.images.map(img => (
+                                       <div
+                                          className='method'
+                                          style={{
+                                             display: 'inline-block',
+                                             marginTop: 0
+                                          }}>
+                                          <FadeInDiv>
+                                             <img
+                                                className='pl-img'
+                                                key={img.name}
+                                                src={`./images/${img.name}`}
+                                                alt={img.name}
+                                                onClick={() =>
+                                                   this.props.history.push(
+                                                      img.route
+                                                   )
+                                                }
+                                             />
+                                          </FadeInDiv>
+                                       </div>
+                                    ))}
                                  </div>
                               </div>
                            )}
