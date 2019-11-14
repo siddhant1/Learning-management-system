@@ -1,51 +1,50 @@
 .like-panel div {
-   display: inline-block;
-   padding: 10px;
-   /* background-color: red; */
+  display: inline-block;
+  padding: 10px;
+  /* background-color: red; */
 }
 
 .like-panel {
-   display: flex;
-   align-items: center;
-   /* width: 50.52%; */
-   /* background-color: #eee; */
+  display: flex;
+  align-items: center;
+  /* width: 50.52%; */
+  /* background-color: #eee; */
 }
 
 .video-container {
-   margin-left: 50px;
-   margin-top: 20px;
-   /* background-color: #eee; */
+  margin-left: 50px;
+  margin-top: 20px;
+  /* background-color: #eee; */
 }
 
 .like-panel div svg {
-   cursor: pointer;
-   /* margin-left: 30px; */
+  cursor: pointer;
+  /* margin-left: 30px; */
 }
 
 .like-panel div:nth-child(2) svg {
-   margin-left: 20px;
+  margin-left: 20px;
 }
 
 .video-title {
-   font-size: x-large;
-   margin: 20px 0px;
+  font-size: x-large;
+  margin: 20px 0px;
 }
 
 .play-container {
-   display: grid;
-   grid-template-columns: 2fr 1fr;
-   /* grid-gap: 1rem; */
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  /* grid-gap: 1rem; */
 }
 
-
-.play-video-list{
-   text-align: center;
-   margin-left: 80px;
-   margin-top: 20px;
+.play-video-list {
+  text-align: center;
+  margin-left: 80px;
+  margin-top: 20px;
 }
 
-.list-header{
-   font-size: x-large;
-   margin-left: 96px;
-   white-space: nowrap;
+.list-header {
+  font-size: x-large;
+  margin-left: 96px;
+  white-space: nowrap;
 }

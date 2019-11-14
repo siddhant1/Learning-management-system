@@ -22,7 +22,7 @@ export default class Comments extends React.Component {
       return (
          <div>
             <CommentsBlock
-               className="comments"
+               className='comments'
                comments={this.state.comments}
                signinUrl={'/signin'}
                isLoggedIn

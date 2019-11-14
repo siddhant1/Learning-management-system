@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import './header.css'
-import { User, Menu } from 'react-feather'
+import { Menu, User } from 'react-feather'
 import { Link } from 'react-router-dom'
+import './header.css'
 export default class Header extends Component {
    render() {
       return (

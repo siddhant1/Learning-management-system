@@ -84,7 +84,7 @@ class ScreenRecording extends React.Component {
       this.invokeGetDisplayMedia(
          screen => {
             this.addStreamStopListener(screen, () => {
-               //  this.stopRecordingCallback()
+               // this.stopRecordingCallback();
             })
             callback(screen)
          },
