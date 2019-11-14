@@ -22,8 +22,10 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "react-sketch": "^0.5.1",
+    "recordrtc": "^5.5.8",
     "react-ui-cards": "^2.0.0",
-    "reactstrap": "^8.1.1"
+    "reactstrap": "^8.1.1",
+    "simple-react-comments": "^1.1.0"
   },
   "scripts": {
     "check:js": "prettier --check ./src/**/*.{js,jsx}",
