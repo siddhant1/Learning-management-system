@@ -9,85 +9,185 @@ import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import { Link } from 'react-router-dom'
 import './userlogin.css'
+import Axios from 'axios'
+import API_END_POINTS from '../../utils/constants/apiEndPoint'
 
 export default class SignUp extends React.Component {
+   state = {
+      user: 'student'
+   }
+   handleChange = event => {
+      event.preventDefault()
+      this.setState(
+         {
+            [event.target.name]: event.target.value
+         },
+         () => {
+            console.log('this.state ', this.state)
+         }
+      )
+   }
+   getFullName = () => {
+      const { firstName, lastName } = this.state
+      this.setState({
+         name: firstName + lastName
+      })
+   }
+   signUp = async event => {
+      event.preventDefault()
+      this.setState({
+         submit: true
+      })
+      const { name, email, password, user } = this.state
+      var requestBody = {
+         name,
+         email,
+         password
+      }
+      try {
+         let isSign = await Axios.post(
+            user === 'student'
+               ? API_END_POINTS.studentSignUp
+               : API_END_POINTS.teacherSignUp,
+            requestBody
+         )
+         if (isSign.data) {
+            this.setState(
+               {
+                  submit: false
+               },
+               () => {
+                  var authToken = isSign.headers['x-id-token']
+                  localStorage.setItem('authToken', authToken)
+                  // alert('You Register Successfully');
+                  this.props.history.push('/')
+                  console.log('signUp Successful ')
+               }
+            )
+         }
+      } catch (error) {
+         console.log('Error', error)
+      }
+   }
+   makeActive = ref => {
+      if (ref === 'studentRef') {
+         !this.studentRef.classList.contains('active') &&
+            this.studentRef.classList.add('active')
+         this.teacherRef.classList.contains('active') &&
+            this.teacherRef.classList.remove('active')
+         this.setState({
+            user: 'student'
+         })
+      } else if (ref === 'teacherRef') {
+         !this.teacherRef.classList.contains('active') &&
+            this.teacherRef.classList.add('active')
+         this.studentRef.classList.contains('active') &&
+            this.studentRef.classList.remove('active')
+         this.setState({
+            user: 'teacher'
+         })
+      }
+   }
    render() {
       return (
          <Container component='main' maxWidth='xs'>
             <CssBaseline />
             <div className='paper'>
-               <Avatar className='avatar'>
-                  <VerifiedUserIcon />
-               </Avatar>
-               <Typography component='h1' variant='h5'>
-                  Sign up
-               </Typography>
-               <form className='form' noValidate>
-                  <Grid container spacing={2}>
-                     <Grid item xs={12} sm={6}>
-                        <TextField
-                           autoComplete='fname'
-                           name='firstName'
-                           variant='outlined'
-                           required
-                           fullWidth
-                           id='firstName'
-                           label='First Name'
-                           autoFocus
+               <div className='user_card'>
+                  <ul className='tab-group'>
+                     <li
+                        className='tab active'
+                        ref={element => (this.userRef = element)}
+                        onClick={() => this.makeActive('userRef')}>
+                        <span>Student</span>
+                     </li>
+                     <li
+                        className='tab'
+                        ref={element => (this.employeeRef = element)}
+                        onClick={() => this.makeActive('employeeRef')}>
+                        <span>Teacher</span>
+                     </li>
+                  </ul>
+                  <div className='d-flex justify-content-center'>
+                     <div className='brand_logo_container'>
+                        <i
+                           className='fa fa-user brand-logo'
+                           aria-hidden='true'
                         />
+                     </div>
+                  </div>
+                  <form className='form' noValidate>
+                     <Grid container spacing={2}>
+                        <Grid item xs={12} sm={6}>
+                           <TextField
+                              autoComplete='fname'
+                              name='firstName'
+                              variant='outlined'
+                              required
+                              fullWidth
+                              id='firstName'
+                              label='First Name'
+                              autoFocus
+                              onChange={this.handleChange}
+                           />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                           <TextField
+                              variant='outlined'
+                              required
+                              fullWidth
+                              id='lastName'
+                              label='Last Name'
+                              name='lastName'
+                              autoComplete='lname'
+                              onChange={this.handleChange}
+                           />
+                        </Grid>
+                        <Grid item xs={12}>
+                           <TextField
+                              variant='outlined'
+                              required
+                              fullWidth
+                              id='email'
+                              label='Email Address'
+                              name='email'
+                              autoComplete='email'
+                              onChange={this.handleChange}
+                           />
+                        </Grid>
+                        <Grid item xs={12}>
+                           <TextField
+                              variant='outlined'
+                              required
+                              fullWidth
+                              name='password'
+                              label='Password'
+                              type='password'
+                              id='password'
+                              autoComplete='current-password'
+                              onChange={this.handleChange}
+                           />
+                        </Grid>
                      </Grid>
-                     <Grid item xs={12} sm={6}>
-                        <TextField
-                           variant='outlined'
-                           required
-                           fullWidth
-                           id='lastName'
-                           label='Last Name'
-                           name='lastName'
-                           autoComplete='lname'
-                        />
+                     <br></br>
+                     <Button
+                        type='submit'
+                        fullWidth
+                        variant='contained'
+                        color='primary'
+                        onClick={this.signUp}
+                        className='submit'>
+                        Sign Up
+                     </Button>
+                     <Grid container justify='flex-end'>
+                        <Grid item>
+                           <Link to='/login'>
+                              Already have an account? Sign in
+                           </Link>
+                        </Grid>
                      </Grid>
-                     <Grid item xs={12}>
-                        <TextField
-                           variant='outlined'
-                           required
-                           fullWidth
-                           id='email'
-                           label='Email Address'
-                           name='email'
-                           autoComplete='email'
-                        />
-                     </Grid>
-                     <Grid item xs={12}>
-                        <TextField
-                           variant='outlined'
-                           required
-                           fullWidth
-                           name='password'
-                           label='Password'
-                           type='password'
-                           id='password'
-                           autoComplete='current-password'
-                        />
-                     </Grid>
-                  </Grid>
-                  <br></br>
-                  <Button
-                     type='submit'
-                     fullWidth
-                     variant='contained'
-                     color='primary'
-                     className='submit'>
-                     Sign Up
-                  </Button>
-                  <Grid container justify='flex-end'>
-                     <Grid item>
-                        <Link to='/login'>
-                           Already have an account? Sign in
-                        </Link>
-                     </Grid>
-                  </Grid>
-               </form>
+                  </form>
+               </div>
             </div>
          </Container>
       )
