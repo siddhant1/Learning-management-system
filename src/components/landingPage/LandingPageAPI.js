@@ -1,8 +1,9 @@
 // https://siddhant1-lms-backend.glitch.me/api/lecture/
 
-import { REMOTE_HOST } from '../../utils/constants'
+import Axios from 'axios'
+import API_END_POINTS from '../../utils/constants/apiEndPoint'
 
-const HOST = REMOTE_HOST
+const HOST = API_END_POINTS.hostedUrl
 
 const getLectures = async () => {
    const axiosConfig = {
@@ -14,8 +15,7 @@ const getLectures = async () => {
       cache: false,
       processData: false
    }
-
-   const sr = await APIServices.request(axiosConfig)
+   const sr = await Axios.request(axiosConfig)
    return sr
 }
 

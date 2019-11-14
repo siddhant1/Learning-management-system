@@ -44,7 +44,7 @@ class LandingPage extends Component {
       ]
       let response = await getLectures()
       if (response.length) {
-         this.setState({ response })
+         this.setState({ videoArray: response })
       } else {
          this.setState({ videoArray })
       }
