@@ -1,21 +1,50 @@
 .header {
-  background-color: #4a354e;
-  width: 100vw;
-  height: 67.5px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+   background-color: #4a354e;
+   width: 100vw;
+   height: 67.5px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
 }
 
 .header img {
-  width: 154px;
-  height: auto;
-  cursor: pointer;
+   width: 154px;
+   height: auto;
+   cursor: pointer;
 }
 .header svg {
-  width: 33px;
-  height: 33px;
-  color: #fedd2a;
-  margin-right: 25px;
-  cursor: pointer;
+   width: 33px;
+   height: 33px;
+   color: #fedd2a;
+   margin-right: 25px;
+   cursor: pointer;
+}
+.dropdon-content {
+   display: none;
+   position: absolute;
+   left: 30%;
+}
+.dropdon {
+   position: relative;
+}
+.dropdon:hover .dropdon-content {
+   display: block;
+   z-index: 100;
+}
+.dropdon ul {
+   list-style: none;
+   border: 1px solid;
+   margin: 0% !important;
+   padding: 0% !important;
+   background-color: #edf4f8;
+   width: 100px;
+}
+.dropdon li {
+   color: #f7d83c;
+   padding: 10%;
+   cursor: pointer;
+}
+.dropdon li:hover {
+   background-color: #4a354e;
+   color: white;
 }
