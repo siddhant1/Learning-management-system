@@ -1,5 +1,5 @@
 class ReactPath {
-   static scribble = '/scribble'
+   static scribble = '/pen'
    static screenRecord = '/screenRecord'
    static webcam = '/webcam'
    static createPlaylist = '/createPlaylist'

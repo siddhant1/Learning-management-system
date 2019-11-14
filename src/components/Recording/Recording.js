@@ -1,5 +1,7 @@
 import React from 'react'
 import RecordRTC from 'recordrtc'
+import './Recording.css'
+import uploadFile from '../../utils/generic/genericMethod'
 
 var recorder
 class Recording extends React.Component {
@@ -14,12 +16,14 @@ class Recording extends React.Component {
             console.error(error)
          })
    }
-   stopRecordingCallback = () => {
+   stopRecordingCallback = async () => {
       this.video.src = this.video.srcObject = null
       this.video.muted = false
       this.video.volume = 1
+      const blob = recorder.getBlob()
       this.video.src = URL.createObjectURL(recorder.getBlob())
-
+      const url = await uploadFile(blob)
+      console.log(url)
       recorder.camera.stop()
       recorder.destroy()
       recorder = null
@@ -42,26 +46,28 @@ class Recording extends React.Component {
    }
    render() {
       return (
-         <>
-            <title>Screen Recording | RecordRTC</title>
-            <h1>Screen Recording using RecordRTC</h1>
-
-            <br />
-
-            <button id='btn-start-recording' onClick={this.startRecording}>
-               Start Recording
-            </button>
-            <button id='btn-stop-recording' onClick={this.stopRecording}>
-               Stop Recording
-            </button>
-
-            <hr />
+         <div className='webcam-background'>
             <video
+               className='webcam-record'
                ref={element => (this.video = element)}
                controls
                autoPlay
                playsInline></video>
-         </>
+            <button
+               className='webcam-button'
+               id='btn-start-recording'
+               onClick={this.startRecording}>
+               Start Recording
+            </button>
+            <button
+               className='webcam-button'
+               id='btn-stop-recording'
+               onClick={this.stopRecording}>
+               Stop Recording
+            </button>
+
+            {/* <hr /> */}
+         </div>
       )
    }
 }

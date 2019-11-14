@@ -1,5 +1,7 @@
 import React from 'react'
 import RecordRTC from 'recordrtc'
+import './Recording.css'
+import uploadFile from '../../utils/generic/genericMethod'
 
 var recorder
 class ScreenRecording extends React.Component {
@@ -29,8 +31,7 @@ class ScreenRecording extends React.Component {
       // above constraints are NOT supported YET
       // that's why overridnig them
       displaymediastreamconstraints = {
-         video: true,
-         audio: true
+         video: true
       }
       if (navigator.mediaDevices.getDisplayMedia) {
          navigator.mediaDevices
@@ -97,9 +98,12 @@ class ScreenRecording extends React.Component {
          }
       )
    }
-   stopRecordingCallback = () => {
+   stopRecordingCallback = async () => {
       this.video.src = this.video.srcObject = null
+      const blob = recorder.getBlob()
       this.video.src = URL.createObjectURL(recorder.getBlob())
+      const url = await uploadFile(blob)
+      console.log(url)
       this.video.muted = false
       recorder.screen.stop()
       recorder.destroy()
@@ -129,28 +133,29 @@ class ScreenRecording extends React.Component {
       })
    }
    render() {
-      console.log('screen Recording')
       return (
-         <>
-            <h1>Screen Recording | RecordRTC</h1>
-            <h1>Screen Recording using RecordRTC</h1>
-
-            <br />
-
-            <button id='btn-start-recording' onClick={this.startRecording}>
-               Start Recording
-            </button>
-            <button id='btn-stop-recording' onClick={this.stopRecording}>
-               Stop Recording
-            </button>
-
-            <hr />
+         <div className='webcam-background'>
             <video
+               className='webcam-record'
                ref={element => (this.video = element)}
                controls
                autoPlay
                playsInline></video>
-         </>
+            <button
+               className='webcam-button'
+               id='btn-start-recording'
+               onClick={this.startRecording}>
+               Start Recording
+            </button>
+            <button
+               className='webcam-button'
+               id='btn-stop-recording'
+               onClick={this.stopRecording}>
+               Stop Recording
+            </button>
+
+            {/* <hr /> */}
+         </div>
       )
    }
 }
