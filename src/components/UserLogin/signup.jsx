@@ -94,14 +94,14 @@ export default class SignUp extends React.Component {
                   <ul className='tab-group'>
                      <li
                         className='tab active'
-                        ref={element => (this.userRef = element)}
-                        onClick={() => this.makeActive('userRef')}>
+                        ref={element => (this.studentRef = element)}
+                        onClick={() => this.makeActive('studentRef')}>
                         <span>Student</span>
                      </li>
                      <li
                         className='tab'
-                        ref={element => (this.employeeRef = element)}
-                        onClick={() => this.makeActive('employeeRef')}>
+                        ref={element => (this.teacherRef = element)}
+                        onClick={() => this.makeActive('teacherRef')}>
                         <span>Teacher</span>
                      </li>
                   </ul>

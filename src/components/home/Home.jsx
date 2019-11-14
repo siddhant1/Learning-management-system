@@ -7,6 +7,9 @@ import styled, { keyframes } from 'styled-components'
 import CreatePlaylistActionButton from '../create-playlist/CreatePlaylistActionButton'
 import Videos from '../videos/Videos'
 import './home.css'
+import Axios from 'axios'
+import API_END_POINTS from '../../utils/constants/apiEndPoint'
+import { CircularProgress } from '@material-ui/core'
 
 const bounceAnimation = keyframes`${fadeIn}`
 
@@ -18,6 +21,7 @@ const FadeInDiv = styled.div`
 export default class Home extends Component {
    state = {
       showOptions: false,
+      loading: false,
       images: [
          { name: 'Artboard – 1.png', route: '/webCam' },
          { name: 'Artboard – 2.png', route: '/pen' },
@@ -26,7 +30,45 @@ export default class Home extends Component {
          { name: 'Artboard – 5.png', route: '/uploadImage' }
       ]
    }
+   createPlayList = async event => {
+      event.preventDefault()
+      this.setState({
+         loading: true
+      })
+      const { playList: name } = this.state
+      let requestBody = {
+         name,
+         lectureUrl: '',
+         thumbnailImageUrl: ''
+      }
+      let requestHeader = {
+         headers: { 'x-auth-token': localStorage.getItem('authToken') }
+      }
+      try {
+         let playList = await Axios.post(
+            API_END_POINTS.createPlayList,
+            requestBody,
+            requestHeader
+         )
+         if (playList.data) {
+            this.setState({ showOptions: true, loading: false })
+         }
+      } catch (error) {
+         alert('error ' + error)
+         this.setState({
+            loading: false
+         })
+      }
+   }
+   handleChange = event => {
+      event.preventDefault()
+      this.setState({
+         [event.target.name]: event.target.value
+      })
+   }
+
    render() {
+      const { loading } = this.state
       return (
          <div className='home-page-content'>
             <div className='home-page-content-text'>
@@ -47,18 +89,19 @@ export default class Home extends Component {
                               </p>
 
                               <InputGroup>
-                                 <Input />
+                                 <Input
+                                    name='playList'
+                                    onChange={this.handleChange}
+                                 />
                                  <InputGroupAddon addonType='append'>
-                                    <Button
-                                       onClick={() =>
-                                          this.setState({ showOptions: true })
-                                       }>
+                                    <Button onClick={this.createPlayList}>
                                        <ArrowRight />
                                     </Button>
                                  </InputGroupAddon>
                               </InputGroup>
                            </div>
                            <br />
+                           {loading && <CircularProgress />}
                            {this.state.showOptions && (
                               <div style={{ display: 'block' }}>
                                  <div>
