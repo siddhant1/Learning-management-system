@@ -9,6 +9,8 @@
     "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
     "fg-loadcss": "^2.1.0",
+    "moment": "^2.24.0",
+    "pure-react-carousel": "^1.23.2",
     "react": "^16.10.2",
     "react-color": "^2.17.3",
     "react-dom": "^16.10.2",

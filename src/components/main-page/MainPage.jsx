@@ -10,6 +10,7 @@ import Login from '../UserLogin/login'
 import SignUp from '../UserLogin/signup'
 import VideoPlayer from '../VideoPlayer'
 import Forgetpassword from '../UserLogin/forgetpassword'
+import LandingPage from '../landingPage/LandingPage'
 
 export default class MainPage extends React.Component {
    render() {
@@ -31,6 +32,8 @@ export default class MainPage extends React.Component {
                   component={CreateNewPlaylist}
                />
                <Route path={ReactPath.playVideo} component={VideoPlayer} />
+               <Route path={'/landingPage'} component={LandingPage} />
+
                {/*<Route path ="/webcamrec" component={WebCamRecorder} />*/}
                {/*<Route path="/audiorec" component={AudioRecorder} />*/}
             </Switch>
