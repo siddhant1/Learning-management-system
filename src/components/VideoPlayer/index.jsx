@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
+import { ThumbsDown, ThumbsUp } from 'react-feather'
 import ReactPlayer from 'react-player'
-import './index.css'
-import { ThumbsUp, ThumbsDown } from 'react-feather'
 import FeedbackSection from '../feedback-section/FeedbackSection'
+import './index.css'
 import Videos from '../videos/Videos'
 class App extends Component {
    state = {
@@ -55,7 +55,7 @@ class App extends Component {
                </div>
             </div>
             <div className='w-25 play-video-list'>
-               <div className="list-header">Up Next</div>
+               <div className='list-header'>Up Next</div>
                <Videos isNewFalse={true} />
             </div>
          </div>

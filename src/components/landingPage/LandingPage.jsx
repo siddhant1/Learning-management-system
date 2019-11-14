@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import LandingPageCarousel from './LandingPageCarousel'
 import VideoItem from './VideoItem'
 import Grid from '@material-ui/core/Grid'
+import { getLectures } from './LandingPageAPI'
 
 class LandingPage extends Component {
    constructor(props) {
@@ -11,7 +12,7 @@ class LandingPage extends Component {
       }
    }
 
-   componentDidMount = () => {
+   componentDidMount = async () => {
       let videoArray = [
          {
             name: 'best video 1',
@@ -41,7 +42,12 @@ class LandingPage extends Component {
             feedback: 'lol'
          }
       ]
-      this.setState({ videoArray })
+      let response = await getLectures()
+      if (response.length) {
+         this.setState({ response })
+      } else {
+         this.setState({ videoArray })
+      }
    }
 
    render() {
