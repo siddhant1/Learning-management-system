@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import { Menu, User } from 'react-feather'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import './header.css'
-export default class Header extends Component {
+class Header extends Component {
+   logout = () => {
+      localStorage.setItem('authToken', '')
+      this.props.history.push('/login')
+   }
    render() {
       return (
          <div className='header'>
@@ -10,12 +14,18 @@ export default class Header extends Component {
                <img src='../images/iteach-logo.png' alt='header' />
             </Link>
             <div>
-               <Link to='/login'>
+               <span className='dropdon'>
                   <User />
-               </Link>
+                  <div className='dropdon-content'>
+                     <ul>
+                        <li onClick={this.logout}>Log Out</li>
+                     </ul>
+                  </div>
+               </span>
                <Menu />
             </div>
          </div>
       )
    }
 }
+export default withRouter(Header)
