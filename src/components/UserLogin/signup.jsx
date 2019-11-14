@@ -27,20 +27,14 @@ export default class SignUp extends React.Component {
          }
       )
    }
-   getFullName = () => {
-      const { firstName, lastName } = this.state
-      this.setState({
-         name: firstName + lastName
-      })
-   }
    signUp = async event => {
       event.preventDefault()
       this.setState({
          submit: true
       })
-      const { name, email, password, user } = this.state
+      const { email, password, user, lastName, firstName } = this.state
       var requestBody = {
-         name,
+         name: firstName + lastName,
          email,
          password
       }
@@ -57,7 +51,10 @@ export default class SignUp extends React.Component {
                   submit: false
                },
                () => {
-                  var authToken = isSign.headers['x-id-token']
+                  console.log(isSign)
+                  // var authToken = isSign.headers['x-auth-token']
+                  var authToken = isSign.data
+
                   localStorage.setItem('authToken', authToken)
                   // alert('You Register Successfully');
                   this.props.history.push('/')
@@ -169,7 +166,7 @@ export default class SignUp extends React.Component {
                            />
                         </Grid>
                      </Grid>
-                     <br></br>
+                     <br />
                      <Button
                         type='submit'
                         fullWidth
