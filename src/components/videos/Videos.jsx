@@ -45,10 +45,12 @@ export default class Videos extends Component {
             {this.state.videos.map(video => (
                <Video video={video} />
             ))}
-            <div className='video-container add-video'>
-               <PlusCircle />
-               <div className='add-video-text'>{'Add Lecture'}</div>
-            </div>
+            {!this.props.isNewFalse && (
+               <div className='video-container add-video'>
+                  <PlusCircle />
+                  <div className='add-video-text'>{'Add Lecture'}</div>
+               </div>
+            )}
          </div>
       )
    }

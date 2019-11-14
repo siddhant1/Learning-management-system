@@ -30,3 +30,22 @@
    font-size: x-large;
    margin: 20px 0px;
 }
+
+.play-container {
+   display: grid;
+   grid-template-columns: 2fr 1fr;
+   /* grid-gap: 1rem; */
+}
+
+
+.play-video-list{
+   text-align: center;
+   margin-left: 80px;
+   margin-top: 20px;
+}
+
+.list-header{
+   font-size: x-large;
+   margin-left: 96px;
+   white-space: nowrap;
+}
