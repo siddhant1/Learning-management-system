@@ -1,5 +1,6 @@
 import React from 'react'
 import RecordRTC from 'recordrtc'
+import './Recording.css'
 
 var recorder
 class ScreenRecording extends React.Component {
@@ -131,26 +132,28 @@ class ScreenRecording extends React.Component {
    render() {
       console.log('screen Recording')
       return (
-         <>
-            <h1>Screen Recording | RecordRTC</h1>
-            <h1>Screen Recording using RecordRTC</h1>
-
-            <br />
-
-            <button id='btn-start-recording' onClick={this.startRecording}>
-               Start Recording
-            </button>
-            <button id='btn-stop-recording' onClick={this.stopRecording}>
-               Stop Recording
-            </button>
-
-            <hr />
+         <div className='webcam-background'>
             <video
+               className='webcam-record'
                ref={element => (this.video = element)}
                controls
                autoPlay
                playsInline></video>
-         </>
+            <button
+               className='webcam-button'
+               id='btn-start-recording'
+               onClick={this.startRecording}>
+               Start Recording
+            </button>
+            <button
+               className='webcam-button'
+               id='btn-stop-recording'
+               onClick={this.stopRecording}>
+               Stop Recording
+            </button>
+
+            {/* <hr /> */}
+         </div>
       )
    }
 }
