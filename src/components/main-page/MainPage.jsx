@@ -12,6 +12,7 @@ import SignUp from '../UserLogin/signup'
 import VideoPlayer from '../VideoPlayer'
 import ScreenRecording from '../Recording/ScreenRecording'
 import Recording from '../Recording/Recording'
+import SignIn from '../UserLogin/login'
 
 export default class MainPage extends React.Component {
    render() {
@@ -45,6 +46,9 @@ export default class MainPage extends React.Component {
                   path={ReactPath.newPlaylist}
                   component={CreateNewPlaylist}
                />
+               <Route path={ReactPath.playVideo} component={VideoPlayer} />
+               <Route path={ReactPath.login} component={SignIn} />
+               <Route path={ReactPath.signUp} component={SignUp} />
                <Route
                   exact
                   path={ReactPath.playVideo}
