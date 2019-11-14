@@ -43,10 +43,15 @@ class LandingPage extends Component {
          }
       ]
       let response = await getLectures()
-      if (response.length) {
-         this.setState({ videoArray: response })
+      console.log(response, 'response')
+      if (response.status.toString().startsWith('2')) {
+         if (response.data.length) {
+            this.setState({ videoArray: response.data })
+         } else {
+            this.setState({ videoArray })
+         }
       } else {
-         this.setState({ videoArray })
+         console.log('error fetching data')
       }
    }
 
