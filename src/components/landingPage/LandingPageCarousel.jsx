@@ -20,7 +20,9 @@ const styles = theme => ({
       height: theme.spacing(33.7)
    },
    content: {
-      height: '100%'
+      // height: '100%',
+      width: '100%'
+      // backgroundPattern:'fill'
    },
    nvgt: {
       position: 'absolute',
@@ -68,25 +70,40 @@ class LandingPageCarousel extends Component {
                   totalSlides={3}>
                   <Slider>
                      <Slide index={0}>
-                        <div
+                        <img
                            className={classes.content}
-                           style={{ background: 'red' }}>
-                           I am the first Slide.
-                        </div>
+                           src='https://www.irishtimes.com/polopoly_fs/1.3942790.1565937760!/image/image.jpg_gen/derivatives/box_620_330/image.jpg'
+                           alt=''
+                        />
+                        {/*<div*/}
+                        {/*   className={classes.content}*/}
+                        {/*   style={{ background: 'red' }}>*/}
+                        {/*   I am the first Slide.*/}
+                        {/*</div>*/}
                      </Slide>
                      <Slide index={1}>
-                        <div
+                        <img
                            className={classes.content}
-                           style={{ background: 'blue' }}>
-                           I am the second Slide.
-                        </div>
+                           src='https://res.cloudinary.com/highereducation/image/upload/v1533591754/TheBestColleges.org/study-notebooks.jpg'
+                           alt=''
+                        />
+                        {/*<div*/}
+                        {/*   className={classes.content}*/}
+                        {/*   style={{ background: 'blue' }}>*/}
+                        {/*   I am the second Slide.*/}
+                        {/*</div>*/}
                      </Slide>
                      <Slide index={2}>
-                        <div
+                        <img
                            className={classes.content}
-                           style={{ background: 'green' }}>
-                           I am the third Slide.
-                        </div>
+                           src='http://www.insidehighered.com/sites/default/server_files/media/iStock-520374378.jpg'
+                           alt=''
+                        />
+                        {/*<div*/}
+                        {/*   className={classes.content}*/}
+                        {/*   style={{ background: 'green' }}>*/}
+                        {/*   I am the third Slide.*/}
+                        {/*</div>*/}
                      </Slide>
                   </Slider>
                   <DotGroup className={classNames(classes.dots)} />
