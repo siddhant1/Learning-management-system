@@ -10,7 +10,6 @@ import Forgetpassword from '../UserLogin/forgetpassword'
 import Login from '../UserLogin/login'
 import SignUp from '../UserLogin/signup'
 import VideoPlayer from '../VideoPlayer'
-import VideoPlayer from '../VideoPlayer'
 // import Recording from '../Recording/Recording'
 // import ScreenRecording from '../Recording/ScreenRecording'
 
