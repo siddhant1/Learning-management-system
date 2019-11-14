@@ -9,7 +9,7 @@ import Recording from '../Recording/Recording'
 import ScreenRecording from '../Recording/ScreenRecording'
 import ScribblePad from '../scribble-pad/ScribblePad'
 import Forgetpassword from '../UserLogin/forgetpassword'
-import Login from '../UserLogin/login'
+import { default as Login, default as SignIn } from '../UserLogin/login'
 import SignUp from '../UserLogin/signup'
 import VideoPlayer from '../VideoPlayer'
 
@@ -35,6 +35,9 @@ export default class MainPage extends React.Component {
                   path={ReactPath.newPlaylist}
                   component={CreateNewPlaylist}
                />
+               <Route path={ReactPath.playVideo} component={VideoPlayer} />
+               <Route path={ReactPath.login} component={SignIn} />
+               <Route path={ReactPath.signUp} component={SignUp} />
                <Route
                   exact
                   path={ReactPath.playVideo}

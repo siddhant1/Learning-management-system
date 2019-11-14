@@ -1,20 +1,90 @@
 .paper {
-    display: flex;
-    margin-top: 64px;
-    align-items: center;
-    flex-direction: column;
+   display: flex;
+   margin-top: 64px;
+   align-items: center;
+   flex-direction: column;
 }
 
 .avatar {
-    margin: 8px;
-    background-color: #f50057;
+   margin: 8px;
+   background-color: #f50057;
 }
 
 .userForm {
-    width: 100%;
-    margin-top: 8px;
+   width: 100%;
+   margin-top: 8px;
 }
 
 .userFormSubmit {
-    margin: 24px 0px 16px
+   margin: 24px 0px 16px;
+}
+
+.tab-group {
+   list-style: none;
+   padding: 0;
+   margin: 0 0 40px 0;
+}
+.brand_logo_container {
+   position: absolute;
+   height: 170px;
+   width: 170px;
+   top: -75px;
+   border-radius: 50%;
+   background: #334a9e;
+   padding: 14px;
+   text-align: center;
+}
+.brand-logo {
+   /* height: 150pxq */
+   border-radius: 100% !important;
+   /* border: 2px solid white; */
+   font-size: 140px !important;
+   color: #fff !important;
+   /* padding: 10px; */
+}
+.user_card {
+   height: 600px;
+   width: 450px;
+   margin-top: 10%;
+   margin-bottom: auto;
+   /* background: #5b4ce6; */
+   position: relative;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   padding: 10px;
+   box-shadow: 5px 4px 8px 5px rgba(68, 70, 236, 0.2),
+      5px 6px 20px 5px rgba(98, 90, 207, 0.19);
+   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   border-radius: 5px;
+}
+
+.tab-group::after {
+   content: '';
+   display: table;
+   clear: both;
+}
+.tab-group li span {
+   display: block;
+   text-decoration: none;
+   padding: 15px;
+   background-color: rgba(#b7bdbc, 0.25);
+   color: #a0b3b0;
+   font-size: 20px;
+   float: left;
+   width: 50%;
+   text-align: center;
+   cursor: pointer;
+   transition: 0.5s ease;
+}
+li span:hover {
+   background: #334a9e;
+   color: white;
+}
+.tab-group .active span {
+   background: #334a9e;
+   color: white;
 }

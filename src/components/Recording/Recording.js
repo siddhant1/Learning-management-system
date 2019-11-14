@@ -1,6 +1,7 @@
 import React from 'react'
 import RecordRTC from 'recordrtc'
 import './Recording.css'
+import uploadFile from '../../utils/generic/genericMethod'
 
 var recorder
 class Recording extends React.Component {
@@ -15,12 +16,14 @@ class Recording extends React.Component {
             console.error(error)
          })
    }
-   stopRecordingCallback = () => {
+   stopRecordingCallback = async () => {
       this.video.src = this.video.srcObject = null
       this.video.muted = false
       this.video.volume = 1
+      const blob = recorder.getBlob()
       this.video.src = URL.createObjectURL(recorder.getBlob())
-
+      const url = await uploadFile(blob)
+      console.log(url)
       recorder.camera.stop()
       recorder.destroy()
       recorder = null
