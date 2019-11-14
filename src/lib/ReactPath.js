@@ -5,6 +5,7 @@ class ReactPath {
    static createPlaylist = '/createPlaylist'
    static newPlaylist = '/newPlaylist'
    static playVideo = '/play/:id'
+   static landingPage = '/landingPage'
 
    static homePath = '/'
 

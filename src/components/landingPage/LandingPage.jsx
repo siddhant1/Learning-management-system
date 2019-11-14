@@ -10,7 +10,7 @@ class LandingPage extends Component {
          thumbnailImageUrl:
             'https://cdn.pixabay.com/photo/2013/07/12/17/47/test-pattern-152459__340.png',
          isPublished: false,
-         dateCreated: Date.now(),
+         dateCreated: new Date('10/2/2019'),
          feedback: 'lol'
       }
       return (
