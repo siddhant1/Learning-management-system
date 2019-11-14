@@ -7,6 +7,8 @@ class ReactPath {
    static playVideo = '/play/:id'
    static landingPage = '/landingPage'
 
+   static homePath = '/'
+
    //Added new routes for login, signup and forget password
    static login = '/login'
    static signup = '/signup'

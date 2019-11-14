@@ -32,7 +32,7 @@ export default class MainPage extends React.Component {
                   component={CreateNewPlaylist}
                />
                <Route path={ReactPath.playVideo} component={VideoPlayer} />
-               <Route path={'/landingPage'} component={LandingPage} />
+               <Route path={ReactPath.landingPage} component={LandingPage} />
 
                {/*<Route path ="/webcamrec" component={WebCamRecorder} />*/}
                {/*<Route path="/audiorec" component={AudioRecorder} />*/}
