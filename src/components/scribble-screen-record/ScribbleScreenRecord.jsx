@@ -138,7 +138,6 @@ class ScribbleScreenRecord extends React.Component {
                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-               course: '5dd02c901b6252030e45bdd4',
                lecture: lecture._id
             })
          }
