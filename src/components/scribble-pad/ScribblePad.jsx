@@ -2,6 +2,7 @@ import React from 'react'
 import { SketchField } from 'react-sketch'
 import './ScribblePad.css'
 import ScribblePalette from '../scribble-palette/ScribblePalette'
+import ScribbleScreenRecord from '../scribble-screen-record/ScribbleScreenRecord'
 export default class ScribblePad extends React.Component {
    state = {
       color: 'white',
@@ -52,6 +53,7 @@ export default class ScribblePad extends React.Component {
                   />
                </div>
             </div>
+            <ScribbleScreenRecord />
          </div>
       )
    }
