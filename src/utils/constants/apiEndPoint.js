@@ -4,7 +4,8 @@ class API_END_POINTS {
    static studentSignUp = `${this.hostedUrl}/api/student`
    static teacherLogin = `${this.hostedUrl}/api/teacher/login`
    static teacherSignUp = `${this.hostedUrl}/api/teacher`
-   static createPlayList = `${this.hostedUrl}/api/lecture`
+   static createPlayList = `${this.hostedUrl}/api/course`
+   static addLecture = `${this.hostedUrl}/api/lecture`
 }
 
 export default API_END_POINTS

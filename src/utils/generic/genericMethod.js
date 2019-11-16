@@ -1,4 +1,5 @@
 const uploadFile = async e => {
+
    const files = e.target.files
    const data = new FormData()
    data.append('file', files[0])

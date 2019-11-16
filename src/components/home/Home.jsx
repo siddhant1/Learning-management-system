@@ -37,9 +37,7 @@ export default class Home extends Component {
       })
       const { playList: name } = this.state
       let requestBody = {
-         name,
-         lectureUrl: '',
-         thumbnailImageUrl: ''
+         name
       }
       let requestHeader = {
          headers: { 'x-auth-token': localStorage.getItem('authToken') }
