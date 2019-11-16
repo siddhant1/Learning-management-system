@@ -13,6 +13,7 @@ import Forgetpassword from '../UserLogin/forgetpassword'
 import { default as Login } from '../UserLogin/login'
 import SignUp from '../UserLogin/signup'
 import VideoPlayer from '../VideoPlayer'
+import LectureView from '../lecture-view/Lecture-view'
 
 export default class MainPage extends React.Component {
    render() {
@@ -26,19 +27,15 @@ export default class MainPage extends React.Component {
                <Route exact path={ReactPath.scribble} component={ScribblePad} />
                <Route
                   exact
+                  path={ReactPath.courseView}
+                  component={LectureView}
+               />
+               <Route
+                  exact
                   path={ReactPath.forgetpassword}
                   component={Forgetpassword}
                />
-               <Route
-                  exact
-                  path={ReactPath.createPlaylist}
-                  component={AddLecture}
-               />
-               <Route
-                  exact
-                  path={ReactPath.newPlaylist}
-                  component={CreateNewPlaylist}
-               />
+               <Route exact path={ReactPath.newLesson} component={AddLecture} />
                <Route
                   exact
                   path={ReactPath.playVideo}
@@ -53,6 +50,7 @@ export default class MainPage extends React.Component {
                   component={ScreenRecording}
                />
                <Route exact path={ReactPath.webCam} component={Recording} />
+               
             </Switch>
          </div>
       )

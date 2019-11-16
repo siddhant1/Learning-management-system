@@ -4,17 +4,34 @@ import ReactPlayer from 'react-player'
 import FeedbackSection from '../feedback-section/FeedbackSection'
 import './index.css'
 import Videos from '../videos/Videos'
-class App extends Component {
+import API_END_POINTS from '../../utils/constants/apiEndPoint'
+import Loader from 'react-spinners/BounceLoader'
+class VideoPlayer extends Component {
    state = {
-      url: 'https://www.youtube.com/watch?v=zpXnmy-6w1g'
+      url: '',
+      loading: false
    }
 
-   componentDidCatch() {
-      // backend call
-      // get video id from props and make an API call to get the url (this.props.id)
+   async componentDidMount() {
+      this.setState({ loading: true })
+      const lecture = await fetch(
+         `${API_END_POINTS.addLecture}/${this.props.match.params.id}`,
+         {
+            headers: {
+               'Content-Type': 'application/json',
+               'x-auth-token': localStorage.authToken
+            }
+         }
+      ).then(d => d.json())
+
+      console.log(lecture)
+      this.setState({ lecture: lecture[0], loading: false })
    }
 
    render() {
+      if (this.state.loading) {
+         return <Loader />
+      }
       return (
          <div className='play-container'>
             <div className='w-75'>
@@ -22,7 +39,7 @@ class App extends Component {
                   <ReactPlayer
                      width={'853px'}
                      height={'480px'}
-                     url={this.state.url}
+                     url={this.state.lecture && this.state.lecture.lectureUrl}
                      controls
                   />
                   <div
@@ -31,7 +48,9 @@ class App extends Component {
                         justifyContent: 'space-between',
                         width: '135.26%'
                      }}>
-                     <div className='video-title'>Panipat ki ladai</div>
+                     <div className='video-title'>
+                        {this.state.lecture && this.state.lecture.name}
+                     </div>
                      <div className='like-panel'>
                         <div>
                            <ThumbsUp />
@@ -63,4 +82,4 @@ class App extends Component {
    }
 }
 
-export default App
+export default VideoPlayer

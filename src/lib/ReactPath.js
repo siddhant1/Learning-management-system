@@ -7,6 +7,7 @@ class ReactPath {
    static playVideo = '/play/:id'
    static newLesson = '/newLesson'
    static landingPage = '/landingPage'
+   static courseView = '/course/:id'
 
    static homePath = '/'
 

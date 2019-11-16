@@ -139,7 +139,6 @@ class ScreenRecording extends React.Component {
                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-               course: this.props.course,
                lecture: lecture._id
             })
          }
