@@ -41,7 +41,8 @@ class LectureView extends React.Component {
                {this.state.course && this.state.course.name}
             </div>
             <div className='videos-container'>
-               {this.state.course.lectures &&
+               {this.state.course &&
+                  this.state.course.lectures &&
                   this.state.course.lectures.map(video => (
                      <div
                         onClick={() =>

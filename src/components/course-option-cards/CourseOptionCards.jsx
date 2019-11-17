@@ -121,16 +121,11 @@ class CourseOptionCards extends React.Component {
             headers: { 'x-auth-token': authToken }
          }
          let requestBody = {
-            selectedCourse: {
-               ...this.state.selectedCourse,
-               name: this.state.courseName,
-               isPublished:
-                  this.state.isPublished ||
-                  this.state.selectedCourse.isPublished
-            }
+            name: this.state.courseName,
+            createdBy: this.state.selectedCourse.createdBy
          }
          console.log(requestBody)
-         console.log(this.state.selectedCourse._id)
+         // console.log(this.state.selectedCourse._id)
          let course = await Axios.put(
             `${API_END_POINTS.getPlayList}/${this.state.selectedCourse._id}`,
             requestBody,
