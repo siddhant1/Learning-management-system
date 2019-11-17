@@ -14,6 +14,7 @@ import { default as Login } from '../UserLogin/login'
 import SignUp from '../UserLogin/signup'
 import VideoPlayer from '../VideoPlayer'
 import LectureView from '../lecture-view/Lecture-view'
+import VideoEditor from '../video-editor/VideoEditor'
 
 class MainPage extends React.Component {
    componentDidMount() {
@@ -41,6 +42,11 @@ class MainPage extends React.Component {
                   exact
                   path={ReactPath.forgetpassword}
                   component={Forgetpassword}
+               />
+               <Route
+                  path={ReactPath.videoEditor}
+                  exact
+                  component={VideoEditor}
                />
                <Route
                   path={ReactPath.newPlaylist}
