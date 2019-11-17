@@ -9,6 +9,7 @@ class ReactPath {
    static landingPage = '/landingPage'
    static courseView = '/course/:id'
    static studentDashboard = '/student'
+   static videoEditor = '/video-editor'
    static homePath = '/'
 
    //Added new routes for login, signup and forget password

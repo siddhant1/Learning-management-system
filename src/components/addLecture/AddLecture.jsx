@@ -38,7 +38,7 @@ export default class AddLecture extends Component {
                   <div className='method'>
                      <img
                         key={img.name}
-                        src={`./images/${img.name}`}
+                        src={`../images/${img.name}`}
                         alt={img.name}
                         onClick={() => this.props.history.push(img.route)}
                      />
