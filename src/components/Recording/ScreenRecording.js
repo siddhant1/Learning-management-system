@@ -11,7 +11,10 @@ var recorder
 class ScreenRecording extends React.Component {
    state = {
       stopRecording: false,
-      startRecording: false
+      startRecording: false,
+      thumbnailImageUrl: '',
+      name: '',
+      submit: false
    }
    componentDidMount() {
       if (
@@ -111,9 +114,9 @@ class ScreenRecording extends React.Component {
       const data = new FormData()
       data.append('file', blob)
       data.append('upload_preset', 'Sick-fits')
-      this.setState({
-         submit: true
-      })
+
+      this.setState({ submit: true })
+
       try {
          const res = await fetch(
             'https://api.cloudinary.com/v1_1/dv95rctxg/video/upload',
@@ -130,12 +133,12 @@ class ScreenRecording extends React.Component {
                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-               name: 'Lecture 1',
+               name: this.state.name,
                lectureUrl: res.url,
-               thumbnailImageUrl:
-                  'https://static.toiimg.com/photo/msid-67868104/67868104.jpg?1368689'
-            })
-         }).then(d => d.json())
+               thumbnailImageUrl: this.state.thumbnailImageUrl
+            }).then(d => d.json())
+         })
+
          let id = this.props.location.pathname.split('/')
          const c = await fetch(
             `${API_END_POINTS.createPlayList}/${id[2]}/addLec`,
@@ -204,6 +207,33 @@ class ScreenRecording extends React.Component {
                })
             }}>
             <div className='webcam-background'>
+               <div style={{ marginLeft: '43vw' }}>
+                  <div
+                     style={{
+                        position: 'absolute',
+                        top: '3',
+                        marginBottom: '3px'
+                        // left:'40vw'
+                     }}>
+                     <input
+                        onChange={e => {
+                           this.setState({
+                              name: e.target.value
+                           })
+                        }}
+                        style={{ display: 'block', marginBottom: '4px' }}
+                        type='text'
+                        placeholder='Enter Lecture Name'
+                     />
+                     <input
+                        onChange={e => {
+                           this.setState({ thumbnailImageUrl: e.target.value })
+                        }}
+                        type='text'
+                        placeholder='Enter Thumbnail Image URL'
+                     />
+                  </div>
+               </div>
                <video
                   className='webcam-record'
                   ref={element => (this.video = element)}

@@ -1,9 +1,8 @@
+import { CircularProgress } from '@material-ui/core'
 import React from 'react'
-import API_END_POINTS from '../../utils/constants/apiEndPoint'
-import Video from '../videos/Video'
 import { PlusCircle } from 'react-feather'
 import { Link } from 'react-router-dom'
-import { CircularProgress } from '@material-ui/core'
+import API_END_POINTS from '../../utils/constants/apiEndPoint'
 
 class LectureView extends React.Component {
    state = {

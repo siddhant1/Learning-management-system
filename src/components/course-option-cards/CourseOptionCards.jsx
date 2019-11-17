@@ -1,25 +1,15 @@
+import { CircularProgress } from '@material-ui/core'
+import Axios from 'axios'
 import React from 'react'
-import {
-   Card,
-   CardImg,
-   CardText,
-   CardBody,
-   CardTitle,
-   CardSubtitle,
-   Button
-} from 'reactstrap'
-import { fadeIn } from 'react-animations'
 import { ArrowRight } from 'react-feather'
 import { PortalWithState } from 'react-portal'
-import { Input, InputGroup, InputGroupAddon } from 'reactstrap'
-import Modal from '../../Modal/Modal'
-import './CourseOptionCards.css'
-import CreatePlaylistActionButton from '../create-playlist/CreatePlaylistActionButton'
-import Axios from 'axios'
-import API_END_POINTS from '../../utils/constants/apiEndPoint'
-import swal from 'sweetalert'
-import { CircularProgress } from '@material-ui/core'
 import { withRouter } from 'react-router'
+import { Button, Input, InputGroup, InputGroupAddon } from 'reactstrap'
+import swal from 'sweetalert'
+import Modal from '../../Modal/Modal'
+import API_END_POINTS from '../../utils/constants/apiEndPoint'
+import CreatePlaylistActionButton from '../create-playlist/CreatePlaylistActionButton'
+import './CourseOptionCards.css'
 class CourseOptionCards extends React.Component {
    state = {
       listOfCourses: [],
@@ -187,7 +177,10 @@ class CourseOptionCards extends React.Component {
                               </div>
                               <div className='row'>
                                  <div className='col-md-5'>
-                                    Lectueres : {course.lectures.length || 0}
+                                    Lectures :{' '}
+                                    {(course.lectures &&
+                                       course.lectures.length) ||
+                                       0}
                                  </div>
                                  <div className='col-md-7'>
                                     Created On :
