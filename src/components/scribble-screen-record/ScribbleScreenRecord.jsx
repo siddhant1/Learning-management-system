@@ -105,48 +105,55 @@ class ScribbleScreenRecord extends React.Component {
       const data = new FormData()
       data.append('file', blob)
       data.append('upload_preset', 'Sick-fits')
-      const res = await fetch(
-         'https://api.cloudinary.com/v1_1/dv95rctxg/video/upload',
-         {
-            method: 'POST',
-            body: data
-         }
-      ).then(d => d.json())
-      console.log('res', res)
+      this.setState({
+         submit: true
+      })
+      try {
+         const res = await fetch(
+            'https://api.cloudinary.com/v1_1/dv95rctxg/video/upload',
+            {
+               method: 'POST',
+               body: data
+            }
+         ).then(d => d.json())
+         console.log('res', res)
 
-      const lecture = await fetch(API_END_POINTS.addLecture, {
-         method: 'POST',
-         headers: {
-            'x-auth-token': localStorage.authToken,
-            'Content-Type': 'application/json'
-         },
-         body: JSON.stringify({
-            name: 'Lecture 1',
-            lectureUrl: res.url,
-            thumbnailImageUrl:
-               'https://static.toiimg.com/photo/msid-67868104/67868104.jpg?1368689'
-         })
-      }).then(d => d.json())
-
-      // addLec - > add props for course Id later
-      const c = await fetch(
-         `${API_END_POINTS.createPlayList}/5dd02c901b6252030e45bdd4/addLec`,
-         {
+         const lecture = await fetch(API_END_POINTS.addLecture, {
             method: 'POST',
             headers: {
                'x-auth-token': localStorage.authToken,
                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-               lecture: lecture._id
+               name: 'Lecture 1',
+               lectureUrl: res.url,
+               thumbnailImageUrl:
+                  'https://static.toiimg.com/photo/msid-67868104/67868104.jpg?1368689'
             })
-         }
-      ).then(res => res.json())
-      console.log(c)
+         }).then(d => d.json())
+         let id = this.props.location.pathname.split('/')
+         // addLec - > add props for course Id later
+         const c = await fetch(
+            `${API_END_POINTS.createPlayList}/${id[2]}/addLec`,
+            {
+               method: 'POST',
+               headers: {
+                  'x-auth-token': localStorage.authToken,
+                  'Content-Type': 'application/json'
+               },
+               body: JSON.stringify({
+                  lecture: lecture._id
+               })
+            }
+         ).then(res => res.json())
+         console.log(c)
 
-      recorder && recorder.screen.stop()
-      recorder && recorder.destroy()
-      recorder = null
+         recorder && recorder.screen.stop()
+         recorder && recorder.destroy()
+         recorder = null
+      } catch (error) {
+         this.setState({})
+      }
    }
    startRecording = () => {
       !this.state.startRecording &&
