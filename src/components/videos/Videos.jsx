@@ -48,7 +48,7 @@ export default class Videos extends Component {
             ))}
 
             {!this.props.isNewFalse && (
-               <Link to='/newLesson'>
+               <Link to='/newLesson/5dd02c901b6252030e45bdd4'>
                   <div className='video-container add-video'>
                      <PlusCircle />
                      <div className='add-video-text'>{'Add Lecture'}</div>

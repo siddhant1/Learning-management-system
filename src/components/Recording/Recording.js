@@ -77,8 +77,6 @@ class Recording extends React.Component {
                })
             }
          ).then(d => d.json())
-         // console.log(this.props.match.params)
-         let id = this.props.location.pathname.split('/')
 
          this.setState({
             submit: false
@@ -88,6 +86,7 @@ class Recording extends React.Component {
          recorder && recorder.destroy()
          recorder = null
       } catch (error) {
+         console.log(error)
          this.setState({
             submit: false
          })
