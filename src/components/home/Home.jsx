@@ -84,6 +84,7 @@ export default class Home extends Component {
                   PlayList
                </button>
             </div>
+            <Videos isNewFalse={localStorage.role === 'student'} />
             <PortalWithState closeOnEsc>
                {({ openPortal, closePortal, isOpen, portal }) => (
                   <React.Fragment>
