@@ -4,7 +4,10 @@ import './AddLecture.css'
 export default class AddLecture extends Component {
    state = {
       methods: [
-         { name: 'Artboard – 1.png', route: '/webCam' },
+         {
+            name: 'Artboard – 1.png',
+            route: '/webcam/5dd02c901b6252030e45bdd4'
+         },
          { name: 'Artboard – 2.png', route: '/pen' },
          { name: 'Artboard – 3.png', route: '/screenRecord' },
          { name: 'Artboard – 4.png', route: '/text' },
