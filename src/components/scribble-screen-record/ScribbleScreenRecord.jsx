@@ -3,6 +3,9 @@ import RecordRTC from 'recordrtc'
 import './ScribbleScreenRecord.css'
 import uploadFile from '../../utils/generic/genericMethod'
 import API_END_POINTS from '../../utils/constants/apiEndPoint'
+import swal from 'sweetalert'
+import LoadingOverlay from 'react-loading-overlay'
+import BounceLoader from 'react-spinners/BounceLoader'
 
 var recorder
 class ScribbleScreenRecord extends React.Component {
@@ -147,12 +150,22 @@ class ScribbleScreenRecord extends React.Component {
             }
          ).then(res => res.json())
          console.log(c)
-
+         this.setState({
+            submit: false
+         })
+         swal('Good job!', 'Video Saved!', 'success')
          recorder && recorder.screen.stop()
          recorder && recorder.destroy()
          recorder = null
       } catch (error) {
-         this.setState({})
+         this.setState({
+            submit: false
+         })
+         swal({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong! Please Try Again'
+         })
       }
    }
    startRecording = () => {
@@ -179,20 +192,30 @@ class ScribbleScreenRecord extends React.Component {
    }
    render() {
       return (
-         <div className='webcam-wrapper'>
-            <button
-               className='webcam-button btn btn-success'
-               id='btn-start-recording'
-               onClick={this.startRecording}>
-               Start Recording
-            </button>
-            <button
-               className='webcam-button btn btn-danger'
-               id='btn-stop-recording'
-               onClick={this.stopRecording}>
-               Stop Recording
-            </button>
-         </div>
+         <LoadingOverlay
+            active={this.state.submit}
+            spinner={<BounceLoader />}
+            styles={{
+               overlay: base => ({
+                  ...base,
+                  background: 'rgba(237, 247, 248, 0.3)'
+               })
+            }}>
+            <div className='webcam-wrapper'>
+               <button
+                  className='webcam-button btn btn-success'
+                  id='btn-start-recording'
+                  onClick={this.startRecording}>
+                  Start Recording
+               </button>
+               <button
+                  className='webcam-button btn btn-danger'
+                  id='btn-stop-recording'
+                  onClick={this.stopRecording}>
+                  Stop Recording
+               </button>
+            </div>
+         </LoadingOverlay>
       )
    }
 }
