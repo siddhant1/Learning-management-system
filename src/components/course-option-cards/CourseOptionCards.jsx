@@ -161,8 +161,8 @@ class CourseOptionCards extends React.Component {
                         <div
                            class='card col-md-3'
                            onClick={event => {
-                              event.preventDefault()
-                              // this.showLecture(course._id)
+                              event.stopPropagation()
+                              this.showLecture(course._id)
                            }}>
                            <img
                               src='http://connectedcourses.net/wp-content/uploads/2015/01/course.png'
@@ -174,15 +174,18 @@ class CourseOptionCards extends React.Component {
                                  <div className='col-md-10'>
                                     {course.name || 'New Course'}
                                  </div>
-                                 <div
-                                    className='col-md-2'
-                                    onClick={event => {
-                                       event.preventDefault()
-                                       this.showModal(course)
-                                    }}>
-                                    <i
-                                       class='fa fa-ellipsis-v'
-                                       title='Edit'></i>
+                                 <div className='col-md-2'>
+                                    <button
+                                       className='btn btn-primary'
+                                       onClick={event => {
+                                          event.stopPropagation()
+                                          this.showModal(course)
+                                       }}>
+                                       <i
+                                          class='fa fa-ellipsis-v'
+                                          title='Edit'
+                                       />
+                                    </button>
                                  </div>
                               </div>
                               <div className='row'>
@@ -267,7 +270,7 @@ class CourseOptionCards extends React.Component {
                         </select>
                      </div>
                   </div>
-                  <div className='row'>
+                  <div className='row save-button'>
                      <button
                         className='btn btn-primary'
                         onClick={() => this.saveCourseEdition()}>

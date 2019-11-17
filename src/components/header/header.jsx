@@ -16,11 +16,13 @@ class Header extends Component {
             <div>
                <span className='dropdon'>
                   <User />
-                  <div className='dropdon-content'>
-                     <ul>
-                        <li onClick={this.logout}>Log Out</li>
-                     </ul>
-                  </div>
+                  {localStorage.getItem('authToken') && (
+                     <div className='dropdon-content'>
+                        <ul>
+                           <li onClick={this.logout}>Log Out</li>
+                        </ul>
+                     </div>
+                  )}
                </span>
                <Menu />
             </div>
