@@ -76,6 +76,14 @@ export default class Home extends Component {
                Recently Created Videos
             </div>
             <Videos />
+            <div className='course-div home-page-content-text'>
+               Courses Created By You
+               <button
+                  className='btn btn-primary'
+                  onClick={() => this.props.history.push('/newPlaylist')}>
+                  PlayList
+               </button>
+            </div>
             <PortalWithState closeOnEsc>
                {({ openPortal, closePortal, isOpen, portal }) => (
                   <React.Fragment>

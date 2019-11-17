@@ -39,8 +39,13 @@
    color: #fedd2a !important;
 }
 
-
-.pl-img{
-    width:80px;
-    margin: 9px;
+.pl-img {
+   width: 80px;
+   margin: 9px;
+}
+.course-div {
+   margin-top: 5%;
+}
+.course-div button {
+   margin-left: 2%;
 }
