@@ -44,7 +44,9 @@ class LectureView extends React.Component {
                {this.state.course.lectures &&
                   this.state.course.lectures.map(video => (
                      <div
-                        onClick={()=>this.props.history.push(`/play/${video._id}`)}
+                        onClick={() =>
+                           this.props.history.push(`/play/${video._id}`)
+                        }
                         className='video-container'>
                         <img
                            className='video-thumbnail'

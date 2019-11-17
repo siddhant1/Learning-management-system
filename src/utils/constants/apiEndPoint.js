@@ -5,6 +5,7 @@ class API_END_POINTS {
    static teacherLogin = `${this.hostedUrl}/api/teacher/login`
    static teacherSignUp = `${this.hostedUrl}/api/teacher`
    static createPlayList = `${this.hostedUrl}/api/course`
+   static getPlayList = `${this.hostedUrl}/api/course`
    static addLecture = `${this.hostedUrl}/api/lecture`
 }
 

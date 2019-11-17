@@ -32,7 +32,8 @@
     "reactstrap": "^8.1.1",
     "recordrtc": "^5.5.8",
     "simple-react-comments": "^1.1.0",
-    "styled-components": "^4.4.1"
+    "styled-components": "^4.4.1",
+    "sweetalert": "^2.1.2"
   },
   "scripts": {
     "check:js": "prettier --check ./src/**/*.{js,jsx}",

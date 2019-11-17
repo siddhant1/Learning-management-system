@@ -1,0 +1,31 @@
+.modal {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.6);
+}
+
+.Modal-main {
+   position: fixed;
+   background: white;
+   width: 40%;
+   height: auto;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   border-radius: 10px;
+   background-color: #edf4f8 !important;
+}
+
+.display-block {
+   display: block;
+}
+
+.display-none {
+   display: none;
+}
+.modal-title {
+   color: black !important;
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
 import ReactPath from '../../lib/ReactPath'
 import AddLecture from '../addLecture/AddLecture'
 import CreateNewPlaylist from '../create-new-playlist/CreateNewPlaylist'
@@ -15,7 +15,14 @@ import SignUp from '../UserLogin/signup'
 import VideoPlayer from '../VideoPlayer'
 import LectureView from '../lecture-view/Lecture-view'
 
-export default class MainPage extends React.Component {
+class MainPage extends React.Component {
+   componentDidMount() {
+      if (localStorage.getItem('authToken')) {
+      } else {
+         this.props.history.push('/login')
+      }
+   }
+
    render() {
       return (
          <div>
@@ -35,6 +42,16 @@ export default class MainPage extends React.Component {
                   path={ReactPath.forgetpassword}
                   component={Forgetpassword}
                />
+               <Route
+                  path={ReactPath.newPlaylist}
+                  exact
+                  component={CreateNewPlaylist}
+               />
+               <Route
+                  path={ReactPath.playVideo}
+                  exact
+                  component={VideoPlayer}
+               />
                <Route exact path={ReactPath.newLesson} component={AddLecture} />
                <Route
                   exact
@@ -50,9 +67,9 @@ export default class MainPage extends React.Component {
                   component={ScreenRecording}
                />
                <Route exact path={ReactPath.webCam} component={Recording} />
-               
             </Switch>
          </div>
       )
    }
 }
+export default withRouter(MainPage)
