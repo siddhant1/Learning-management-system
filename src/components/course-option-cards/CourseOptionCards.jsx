@@ -111,8 +111,10 @@ class CourseOptionCards extends React.Component {
             headers: { 'x-auth-token': authToken }
          }
          let requestBody = {
+            ...this.state.selectedCourse,
             name: this.state.courseName,
-            createdBy: this.state.selectedCourse.createdBy
+            isPublished:
+               this.state.isPublished || this.state.selectedCourse.isPublished
          }
          console.log(requestBody)
          // console.log(this.state.selectedCourse._id)
@@ -185,7 +187,7 @@ class CourseOptionCards extends React.Component {
                                     {course.dateCreated || '12-8-2019'}
                                  </div>
                                  <div className='col-md-6'>
-                                    Published :{course.isPublished || ' False'}
+                                    Published {course.isPublished || ': False'}
                                  </div>
                               </div>
                            </div>

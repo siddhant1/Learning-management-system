@@ -13,7 +13,7 @@ class LectureView extends React.Component {
    async componentDidMount() {
       this.setState({ loading: true })
       const course = await fetch(
-         `${API_END_POINTS.createPlayList}/5dd02c901b6252030e45bdd4`,
+         `${API_END_POINTS.getPlayList}/${this.props.match.params.id}`,
          {
             headers: {
                'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ class LectureView extends React.Component {
                   ))}
 
                {!this.props.isNewFalse && (
-                  <Link to='/newLesson'>
+                  <Link to={`/newLesson/${this.props.match.params.id}`}>
                      <div className='video-container add-video'>
                         <PlusCircle />
                         <div className='add-video-text'>{'Add Lecture'}</div>

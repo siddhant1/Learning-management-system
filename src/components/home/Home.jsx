@@ -28,7 +28,8 @@ export default class Home extends Component {
          { name: 'Artboard – 3.png', route: '/screenRecord' },
          { name: 'Artboard – 4.png', route: '/text' },
          { name: 'Artboard – 5.png', route: '/uploadImage' }
-      ]
+      ],
+      courseId: ''
    }
    createPlayList = async event => {
       event.preventDefault()
@@ -51,6 +52,9 @@ export default class Home extends Component {
          if (playList.data) {
             this.setState({ showOptions: true, loading: false })
          }
+         this.setState({
+            courseId: playList.data._id
+         })
       } catch (error) {
          alert('error ' + error)
          this.setState({
@@ -117,7 +121,7 @@ export default class Home extends Component {
                                                 alt={img.name}
                                                 onClick={() =>
                                                    this.props.history.push(
-                                                      img.route
+                                                      `${img.route}/${this.state.courseId}`
                                                    )
                                                 }
                                              />
