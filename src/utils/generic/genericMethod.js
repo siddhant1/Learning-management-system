@@ -1,5 +1,5 @@
 const uploadFile = async e => {
-   const files = e.target.files
+   const files = e.target
    const data = new FormData()
    data.append('file', files[0])
    data.append('upload_preset', 'Sick-fits')

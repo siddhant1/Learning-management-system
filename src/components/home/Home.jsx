@@ -64,7 +64,6 @@ export default class Home extends Component {
          [event.target.name]: event.target.value
       })
    }
-
    render() {
       const { loading } = this.state
       return (

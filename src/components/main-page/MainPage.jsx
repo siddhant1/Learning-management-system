@@ -35,9 +35,13 @@ export default class MainPage extends React.Component {
                   path={ReactPath.newPlaylist}
                   component={CreateNewPlaylist}
                />
-               <Route path={ReactPath.playVideo} component={VideoPlayer} />
-               <Route path={ReactPath.login} component={SignIn} />
-               <Route path={ReactPath.signUp} component={SignUp} />
+               <Route
+                  path={ReactPath.playVideo}
+                  exact
+                  component={VideoPlayer}
+               />
+               <Route path={ReactPath.login} exact component={SignIn} />
+               <Route path={ReactPath.signUp} exact component={SignUp} />
                <Route
                   exact
                   path={ReactPath.playVideo}

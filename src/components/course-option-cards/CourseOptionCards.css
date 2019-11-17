@@ -13,3 +13,26 @@
 .action-button {
    margin-bottom: 2%;
 }
+.course-cards-container {
+   margin: 2% 5%;
+}
+.course-list-container {
+   margin: 2% 5%;
+}
+.no-course {
+   font-size: 20px;
+   font-weight: 800;
+}
+.circular-loader {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+}
+.card {
+   margin: 2% 4%;
+   cursor: pointer;
+}
+.course-head {
+   font-weight: 800;
+   font-size: 30px;
+}
