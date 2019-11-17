@@ -201,15 +201,15 @@ class ScribbleScreenRecord extends React.Component {
                   background: 'rgba(237, 247, 248, 0.3)'
                })
             }}>
-            <div className='webcam-wrapper'>
+            <div className='rec-wrapper'>
                <button
-                  className='webcam-button btn btn-success'
+                  className='rec-button btn btn-success'
                   id='btn-start-recording'
                   onClick={this.startRecording}>
                   Start Recording
                </button>
                <button
-                  className='webcam-button btn btn-danger'
+                  className='rec-button btn btn-danger'
                   id='btn-stop-recording'
                   onClick={this.stopRecording}>
                   Stop Recording

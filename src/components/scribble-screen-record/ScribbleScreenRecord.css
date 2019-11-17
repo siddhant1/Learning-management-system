@@ -1,11 +1,9 @@
-.webcam-button{
-    transform: translate(244%,290%);
+.rec-button{
+    transform: translate(244%,90%);
     margin-right: 30px;
 
 }
 
-.webcam-wrapper {
-    position: absolute;
-    top: -10%;
-    right: 33%;
+.rec-wrapper {
+transform: translate(44%,-2717%);
 }

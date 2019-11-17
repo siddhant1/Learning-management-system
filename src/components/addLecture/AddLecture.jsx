@@ -22,7 +22,7 @@ export default class AddLecture extends Component {
          },
          {
             name: 'Artboard – 5.png',
-            route: `/uploadImage/${this.props.match.params.id}`
+            route: `/video-editor`
          }
       ]
    }
