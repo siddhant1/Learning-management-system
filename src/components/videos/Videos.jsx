@@ -43,7 +43,7 @@ export default class Videos extends Component {
    render() {
       return (
          <div className='videos-container'>
-            {this.state.videos.map(video => (
+            {this[this.props.videos ? 'props' : 'state'].videos.map(video => (
                <Video video={video} />
             ))}
 
