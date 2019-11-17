@@ -5,6 +5,7 @@ import './header.css'
 class Header extends Component {
    logout = () => {
       localStorage.setItem('authToken', '')
+      localStorage.setItem('role', '')
       this.props.history.push('/login')
    }
    render() {

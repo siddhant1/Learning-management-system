@@ -1,0 +1,46 @@
+.wrapper {
+   display: grid;
+   grid-auto-flow: column;
+   justify-content: space-between;
+   height: 70%;
+}
+
+.wrapper-card-item {
+   margin-right: 6%;
+   height: 100%;
+}
+
+.action-button {
+   margin-bottom: 2%;
+}
+.course-cards-container {
+   margin: 2% 5%;
+}
+.course-list-container {
+   margin: 2% 5%;
+}
+.no-course {
+   font-size: 20px;
+   font-weight: 800;
+   /* justify-content: cente; */
+   text-align: center;
+   margin: 2%;
+}
+.circular-loader {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+}
+.card {
+   margin: 2% 4%;
+   cursor: pointer;
+}
+.course-head {
+   font-weight: 800;
+   font-size: 30px;
+}
+.save-button {
+   /* text-align: center !important; */
+   justify-content: center;
+   margin-top: 2%;
+}

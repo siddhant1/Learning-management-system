@@ -57,7 +57,9 @@ export default class SignUp extends React.Component {
 
                   localStorage.setItem('authToken', authToken)
                   // alert('You Register Successfully');
-                  this.props.history.push('/')
+                  user === 'teacher'
+                     ? this.props.history.push('/')
+                     : this.props.history.push('/student')
                   console.log('signUp Successful ')
                }
             )

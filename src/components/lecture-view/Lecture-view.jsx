@@ -59,14 +59,15 @@ class LectureView extends React.Component {
                      </div>
                   ))}
 
-               {!this.props.isNewFalse && (
-                  <Link to={`/newLesson/${this.props.match.params.id}`}>
-                     <div className='video-container add-video'>
-                        <PlusCircle />
-                        <div className='add-video-text'>{'Add Lecture'}</div>
-                     </div>
-                  </Link>
-               )}
+               {!this.props.isNewFalse &&
+                  !(localStorage.getItem('role') === 'student') && (
+                     <Link to={`/newLesson/${this.props.match.params.id}`}>
+                        <div className='video-container add-video'>
+                           <PlusCircle />
+                           <div className='add-video-text'>{'Add Lecture'}</div>
+                        </div>
+                     </Link>
+                  )}
             </div>
          </>
       )

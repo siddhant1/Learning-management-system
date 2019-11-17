@@ -112,7 +112,7 @@ class CourseOptionCards extends React.Component {
          }
          let requestBody = {
             ...this.state.selectedCourse,
-            name: this.state.courseName,
+            name: this.state.courseName || this.state.selectedCourse.name,
             isPublished:
                this.state.isPublished || this.state.selectedCourse.isPublished
          }
