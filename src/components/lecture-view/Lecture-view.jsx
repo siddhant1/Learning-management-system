@@ -39,16 +39,18 @@ class LectureView extends React.Component {
                style={{ margin: '33px 80px 0px 54px' }}>
                {this.state.course && this.state.course.name}
             </div>
-            <div className='videos-container'>
+            <div style={{display:'inline-block'}}>
                {this.state.course &&
                   this.state.course.lectures &&
                   this.state.course.lectures.map(video => (
                      <div
+                          style={{display:'inline-block'}}
                         onClick={() =>
                            this.props.history.push(`/play/${video._id}`)
                         }
                         className='video-container'>
                         <img
+                            
                            className='video-thumbnail'
                            src={video && video.thumbnailImageUrl}
                            alt={video && video.thumbnailImageUrl}

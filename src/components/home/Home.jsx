@@ -75,7 +75,8 @@ export default class Home extends Component {
             <div className='home-page-content-text'>
                Recently Created Videos
             </div>
-            <Videos />
+            <Videos isNewFalse={localStorage.role === 'student'} />
+     
             <div className='course-div home-page-content-text'>
                Courses Created By You
                <button
@@ -84,7 +85,6 @@ export default class Home extends Component {
                   PlayList
                </button>
             </div>
-            <Videos isNewFalse={localStorage.role === 'student'} />
             <PortalWithState closeOnEsc>
                {({ openPortal, closePortal, isOpen, portal }) => (
                   <React.Fragment>

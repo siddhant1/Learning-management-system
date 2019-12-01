@@ -6,6 +6,7 @@ import API_END_POINTS from '../../utils/constants/apiEndPoint'
 import LoadingOverlay from 'react-loading-overlay'
 import BounceLoader from 'react-spinners/BounceLoader'
 import swal from 'sweetalert'
+import {matchPath} from 'react-router-dom'
 
 var recorder
 class ScreenRecording extends React.Component {
@@ -105,7 +106,13 @@ class ScreenRecording extends React.Component {
          }
       )
    }
-   stopRecordingCallback = async () => {
+      stopRecordingCallback = async () => {
+      const match = matchPath(this.props.history.location.pathname, {
+         path: '/screenRecord/:id',
+         exact: false,
+         strict: false
+      })
+
       this.video.src = this.video.srcObject = null
       this.video.muted = false
       this.video.volume = 1
@@ -114,9 +121,9 @@ class ScreenRecording extends React.Component {
       const data = new FormData()
       data.append('file', blob)
       data.append('upload_preset', 'Sick-fits')
-
-      this.setState({ submit: true })
-
+      this.setState({
+         submit: true
+      })
       try {
          const res = await fetch(
             'https://api.cloudinary.com/v1_1/dv95rctxg/video/upload',
@@ -136,12 +143,11 @@ class ScreenRecording extends React.Component {
                name: this.state.name,
                lectureUrl: res.url,
                thumbnailImageUrl: this.state.thumbnailImageUrl
-            }).then(d => d.json())
-         })
+            })
+         }).then(d => d.json())
 
-         let id = this.props.location.pathname.split('/')
          const c = await fetch(
-            `${API_END_POINTS.createPlayList}/${id[2]}/addLec`,
+            `${API_END_POINTS.createPlayList}/${match.params.id}/addLec`,
             {
                method: 'POST',
                headers: {
@@ -152,8 +158,8 @@ class ScreenRecording extends React.Component {
                   lecture: lecture._id
                })
             }
-         ).then(res => res.json())
-         console.log(c)
+         ).then(d => d.json())
+
          this.setState({
             submit: false
          })
@@ -162,6 +168,7 @@ class ScreenRecording extends React.Component {
          recorder && recorder.destroy()
          recorder = null
       } catch (error) {
+         console.log(error)
          this.setState({
             submit: false
          })
