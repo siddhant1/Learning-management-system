@@ -1,5 +1,5 @@
 class API_END_POINTS {
-   static hostedUrl = 'https://melodious-rainforest.glitch.me'
+   static hostedUrl = 'https://coral-delicious-time.glitch.me'
    static studentLogin = `${this.hostedUrl}/api/student/login`
    static studentSignUp = `${this.hostedUrl}/api/student`
    static teacherLogin = `${this.hostedUrl}/api/teacher/login`
