@@ -10,7 +10,7 @@
     "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
     "fg-loadcss": "^2.1.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "pure-react-carousel": "^1.23.2",
     "react": "^16.10.2",
     "react-animation": "^1.2.2",
